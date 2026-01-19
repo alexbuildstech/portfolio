@@ -3,8 +3,7 @@
 A highly interactive, Cyberpunk/Matrix-themed personal portfolio website built with React, Three.js (via Spline), and Tailwind CSS. It features a responsive layout, a custom 3D robot interaction, and a detailed timeline of robotics and AI projects.
 
 ## 🚀 Live Demo
-
-[Insert GitHub Pages Link Here]
+https://alexbuildstech.github.io/portfolio/
 
 ## 🛠️ Tech Stack
 
