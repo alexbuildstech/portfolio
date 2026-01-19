@@ -119,3 +119,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Security / Private
+.agent/
+.gemini/
