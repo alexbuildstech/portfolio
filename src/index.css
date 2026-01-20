@@ -13,95 +13,97 @@
     --font-sans: 'IBM Plex Sans', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Matrix-inspired dark theme */
-    --background: 0 0% 0%;
-    --foreground: 120 100% 50%;
+    /* Premium Matrix-inspired theme */
+    --background: 0 0% 2%;    /* Very deep grey/black */
+    --foreground: 142 100% 50%; /* Electric Neon Green */
 
-    --card: 0 0% 3%;
-    --card-foreground: 120 100% 50%;
+    --card: 0 0% 4%;
+    --card-foreground: 142 100% 50%;
 
     --popover: 0 0% 3%;
-    --popover-foreground: 120 100% 50%;
+    --popover-foreground: 142 100% 50%;
 
-    --primary: 120 100% 50%;
+    --primary: 142 100% 50%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 120 50% 15%;
-    --secondary-foreground: 120 100% 50%;
+    --secondary: 142 30% 12%;
+    --secondary-foreground: 142 100% 50%;
 
-    --muted: 120 20% 10%;
-    --muted-foreground: 120 30% 40%;
+    --muted: 142 20% 8%;
+    --muted-foreground: 142 25% 35%;
 
-    --accent: 120 100% 40%;
+    --accent: 180 100% 50%; /* Electric Cyan accent */
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 120 30% 20%;
-    --input: 120 30% 15%;
-    --ring: 120 100% 50%;
+    --border: 142 30% 15%;
+    --input: 142 30% 10%;
+    --ring: 142 100% 50%;
 
     --radius: 0.5rem;
 
     /* Matrix specific colors */
-    --matrix-black: 0 0% 0%;
-    --matrix-glow: 120 100% 50%;
-    --matrix-dim: 120 20% 30%;
+    --matrix-black: 0 0% 2%;
+    --matrix-glow: 142 100% 50%;
+    --matrix-dim: 142 20% 25%;
     --hero-title: 0 0% 100%;
+    --matrix-blue: 180 100% 50%;
 
     --sidebar-background: 0 0% 3%;
-    --sidebar-foreground: 120 100% 50%;
-    --sidebar-primary: 120 100% 50%;
+    --sidebar-foreground: 142 100% 50%;
+    --sidebar-primary: 142 100% 50%;
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 120 50% 15%;
-    --sidebar-accent-foreground: 120 100% 50%;
-    --sidebar-border: 120 30% 20%;
-    --sidebar-ring: 120 100% 50%;
+    --sidebar-accent: 142 50% 15%;
+    --sidebar-accent-foreground: 142 100% 50%;
+    --sidebar-border: 142 30% 20%;
+    --sidebar-ring: 142 100% 50%;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 120 100% 50%;
+    --background: 0 0% 2%;
+    --foreground: 142 100% 50%;
 
-    --card: 0 0% 3%;
-    --card-foreground: 120 100% 50%;
+    --card: 0 0% 4%;
+    --card-foreground: 142 100% 50%;
 
     --popover: 0 0% 3%;
-    --popover-foreground: 120 100% 50%;
+    --popover-foreground: 142 100% 50%;
 
-    --primary: 120 100% 50%;
+    --primary: 142 100% 50%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 120 50% 15%;
-    --secondary-foreground: 120 100% 50%;
+    --secondary: 142 30% 12%;
+    --secondary-foreground: 142 100% 50%;
 
-    --muted: 120 20% 10%;
-    --muted-foreground: 120 30% 40%;
+    --muted: 142 20% 8%;
+    --muted-foreground: 142 25% 35%;
 
-    --accent: 120 100% 40%;
+    --accent: 180 100% 50%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 120 30% 20%;
-    --input: 120 30% 15%;
-    --ring: 120 100% 50%;
+    --border: 142 30% 15%;
+    --input: 142 30% 10%;
+    --ring: 142 100% 50%;
 
-    --matrix-black: 0 0% 0%;
-    --matrix-glow: 120 100% 50%;
-    --matrix-dim: 120 20% 30%;
+    --matrix-black: 0 0% 2%;
+    --matrix-glow: 142 100% 50%;
+    --matrix-dim: 142 20% 25%;
     --hero-title: 0 0% 100%;
+    --matrix-blue: 180 100% 50%;
 
     --sidebar-background: 0 0% 3%;
-    --sidebar-foreground: 120 100% 50%;
-    --sidebar-primary: 120 100% 50%;
+    --sidebar-foreground: 142 100% 50%;
+    --sidebar-primary: 142 100% 50%;
     --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 120 50% 15%;
-    --sidebar-accent-foreground: 120 100% 50%;
-    --sidebar-border: 120 30% 20%;
-    --sidebar-ring: 120 100% 50%;
+    --sidebar-accent: 142 50% 15%;
+    --sidebar-accent-foreground: 142 100% 50%;
+    --sidebar-border: 142 30% 20%;
+    --sidebar-ring: 142 100% 50%;
   }
 }
 
