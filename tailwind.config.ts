@@ -15,6 +15,7 @@ export default {
     fontFamily: {
       sans: ["var(--font-sans)", "sans-serif"],
       mono: ["var(--font-mono)", "monospace"],
+      primary: ["var(--font-primary)", "sans-serif"],
     },
     extend: {
       colors: {
@@ -61,15 +62,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Matrix theme colors
-        matrix: {
-          black: "hsl(var(--matrix-black))",
-          glow: "hsl(var(--matrix-glow))",
-          dim: "hsl(var(--matrix-dim))",
-        },
-        hero: {
-          title: "hsl(var(--hero-title))",
-        },
+        // Legacy colors removed
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,42 +1,47 @@
-import React, { useMemo } from "react"
-import MatrixRain from "../effects/MatrixRain"
-import { ScrambledTitle } from "../effects/TextScramble"
+import React from "react";
+import { motion } from "framer-motion";
+import { Skeleton } from "../ui/Skeleton";
+import { useRobotStore } from "@/hooks/useRobotStore";
 
-interface HeroSectionProps {
-  phrases?: string[]
-  characterCount?: number
-  minSpeed?: number
-  maxSpeed?: number
-  flickerInterval?: number
-  phraseDuration?: number
-  className?: string
-}
-
-const DEFAULT_PHRASES = [
-  'HELLO',
-  "I'M ALEX",
-  'WELCOME IN'
-]
-
-const HeroSection: React.FC<HeroSectionProps> = ({
-  phrases = DEFAULT_PHRASES,
-  phraseDuration = 1000,
-  className = ""
-}) => {
-  const memoizedPhrases = useMemo(() => phrases, [phrases])
+const HeroSection: React.FC = () => {
+  const { isRobotLoaded } = useRobotStore();
 
   return (
-    <section className={`relative w-full h-screen bg-matrix-black overflow-hidden ${className}`}>
-      {/* Raining Characters Layer */}
-      <MatrixRain opacity={0.3} speed={2} />
+    <section className="relative w-full h-screen flex flex-col items-center justify-center p-6 text-center pointer-events-none">
+      <div className="space-y-8 max-w-5xl pointer-events-auto z-10 w-full">
 
-      {/* Title Layer */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 px-4 w-full max-w-4xl">
-        <ScrambledTitle
-          phrases={memoizedPhrases}
-          phraseDuration={phraseDuration}
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-hero-title font-mono uppercase tracking-[0.2em] text-center"
-        />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex flex-col items-center gap-8 w-full"
+        >
+          {!isRobotLoaded ? (
+            <>
+              <Skeleton variant="text" className="h-24 md:h-32 w-2/3 mx-auto" />
+              <Skeleton variant="text" className="h-8 md:h-10 w-1/2 mx-auto" />
+            </>
+          ) : (
+            <>
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+                className="text-6xl md:text-8xl font-bold text-foreground tracking-tighter leading-none"
+              >
+                ALEX
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-2xl md:text-3xl text-gray-400 font-bold tracking-tight max-w-2xl mx-auto"
+              >
+                Functional Robotics & Maker Projects
+              </motion.p>
+            </>
+          )}
+        </motion.div>
       </div>
     </section>
   )
