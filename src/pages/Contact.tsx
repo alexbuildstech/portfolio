@@ -91,8 +91,8 @@ const Contact: React.FC = () => {
                             <div className="space-y-8">
                                 <div className="space-y-3">
                                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest">Primary Channel</h3>
-                                    <a href="mailto:alexand3@gmail.com" className="text-3xl md:text-4xl font-black text-foreground hover:text-accent transition-all block tracking-tighter hover:-translate-y-1">
-                                        alexand3@gmail.com
+                                    <a href="mailto:alexazander3@gmail.com" className="text-3xl md:text-4xl font-black text-foreground hover:text-accent transition-all block tracking-tighter hover:-translate-y-1">
+                                        alexazander3@gmail.com
                                     </a>
                                 </div>
 

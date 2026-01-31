@@ -33,9 +33,9 @@ const About: React.FC = () => {
     };
 
     const sponsors = [
-        { name: "DFRobot", desc: "Heavy Duty Robotics Hardware", logo: "/dfrobot_logo.jpg", color: "hover:bg-orange-50" },
-        { name: "Polymaker", desc: "Industrial Grade Polymers", logo: "/polymaker_logo.jpg", color: "hover:bg-cyan-50" },
-        { name: "Radxa", desc: "Low Latency Compute Boards", logo: "/radxa_logo.png", color: "hover:bg-green-50" },
+        { name: "DFRobot", desc: "Heavy Duty Robotics Hardware", logo: "dfrobot_logo.jpg", color: "hover:bg-orange-50" },
+        { name: "Polymaker", desc: "Industrial Grade Polymers", logo: "polymaker_logo.jpg", color: "hover:bg-cyan-50" },
+        { name: "Radxa", desc: "Low Latency Compute Boards", logo: "radxa_logo.png", color: "hover:bg-green-50" },
     ];
 
     return (
@@ -107,7 +107,7 @@ const About: React.FC = () => {
                                                         onClick={() => setActiveModal('nova')}
                                                     >
                                                         <img
-                                                            src="/assets/diagrams/nova_system_achitecture.png"
+                                                            src="assets/diagrams/nova_system_achitecture.png"
                                                             className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover/img:scale-110"
                                                             alt="Nova Architecture"
                                                         />
@@ -247,7 +247,7 @@ const About: React.FC = () => {
             >
                 {activeModal === 'nova' ? (
                     <img
-                        src="/assets/diagrams/nova_system_achitecture.png"
+                        src="assets/diagrams/nova_system_achitecture.png"
                         className="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-2xl"
                         alt="Nova High-Res Diagram"
                     />
