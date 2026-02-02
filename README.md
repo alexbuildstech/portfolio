@@ -9,7 +9,7 @@ https://alexbuildstech.github.io/portfolio/
 
 -   **Frontend**: React, TypeScript, Vite
 -   **Styling**: Tailwind CSS, shadcn/ui
--   **3D/Animation**: Spline (React Spline), Framer Motion, Three.js (Custom Shaders)
+-   **3D/Animation**: Spline (React Spline), Framer Motion
 -   **Routing**: React Router DOM (HashRouter)
 -   **Testing**: Vitest, React Testing Library, happy-dom
 
@@ -32,22 +32,11 @@ During the development of this portfolio, we encountered and solved several tech
     -   Switched to `HashRouter`, which uses the URL hash (`/#/contact`) to manage routing on the client side, bypassing server-side routing issues.
     -   Updated `vite.config.ts` with `base: "./"`, ensuring all asset requests are relative to the `index.html` location.
 
-### 4. **Isometric Wave Grid Background (Digital Reality)**
--   **Problem**: The previous background implementations lacked the raw "Maker" energy and interaction depth required for a high-end robotics portfolio.
--   **Solution**: Integrated a high-performance Canvas-based Isometric Wave Grid background. This component simulates the "Fabric of Digital Reality" with mouse-repulsion physics and ambient wave motion. It provides a structured, lab-like depth that complements the Spline robot model.
--   **Iteration v1.3**: Boosted grid visibility to 0.4 opacity with `screen` blend mode, ensuring the interaction is legible on all monitors while maintaining a "subconscious" feel.
-
-## 🤖 AI Usage & Implementation Notes
-
-This project extensively utilizes **Antigravity AI (Coder AI v3)** for architectural decisions and code generation:
--   **Physics Simulation**: The `IsoLevelWarp` component's repulsion logic and Z-push effects were mathematically modeled with AI assistance to ensure smooth performance.
--   **Aesthetic Alignment**: AI was used to coordinate typography adjustments with background changes, ensuring a cohesive "Skunkworks" visual language.
--   **Constraints**: All code follows a mobile-first philosophy with desktop refinement, ensuring readiness over pure novelty.
-
 ## 📦 Navigation
 
 -   **Home**: Introduction and animated 3D/Matrix landing.
 -   **About**: Timeline of projects (Nova Humanoid, Assistive Tech) with awards and links.
+-   **Contact**: Minimalist contact information.
 
 ## 🏃‍♂️ Running Locally
 

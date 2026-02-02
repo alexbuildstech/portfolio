@@ -17,18 +17,5 @@ export default defineConfig(() => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-three': ['three', '@splinetool/react-spline'],
-          'vendor-animation': ['framer-motion', 'gsap'],
-          'vendor-ui': ['lucide-react', 'clsx', 'tailwind-merge'],
-        },
-      },
-    },
-    chunkSizeWarningLimit: 1000,
-  },
 }));
 
