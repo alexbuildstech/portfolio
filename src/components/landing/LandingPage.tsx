@@ -12,25 +12,23 @@ const LandingPage: React.FC = () => {
   });
 
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
-  const combinedOpacity = useTransform(scrollYProgress, [0.15, 0.35], [0, 1]);
-  const combinedY = useTransform(scrollYProgress, [0.15, 0.35], [50, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
   return (
-    <div ref={containerRef} className="relative w-full z-10 pointer-events-none">
-      {/* Navbar - Interactive */}
-      <div className="pointer-events-auto">
-        <Navbar />
-      </div>
+    <div ref={containerRef} className="relative w-full z-10">
+      <Navbar />
 
       <main className="w-full flex flex-col items-center">
-        <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="w-full sticky top-0 h-screen overflow-hidden">
+        <motion.div 
+          style={{ opacity: heroOpacity, scale: heroScale }} 
+          className="w-full sticky top-0 h-screen"
+        >
           <HeroSection />
         </motion.div>
 
-        <motion.div style={{ opacity: combinedOpacity, y: combinedY }} className="w-full relative">
+        <div className="w-full relative bg-background">
           <CombinedSection />
-        </motion.div>
+        </div>
       </main>
     </div>
   )

@@ -10,8 +10,8 @@ const Navbar: React.FC = () => {
     const isActive = (path: string) => location.pathname === path;
 
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex items-center gap-4">
-            <div className="glass-panel rounded-full px-8 py-4 flex items-center gap-8 transition-all duration-500 hover:shadow-lg h-12">
+        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex items-center gap-4 group">
+            <div className="glass-panel rounded-full px-8 py-4 flex items-center gap-8 transition-all duration-500 hover:shadow-2xl h-12 bg-black/40 backdrop-blur-md border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
                 {['/', '/about', '/contact'].map((path) => {
                     const label = path === '/' ? 'Home' : path.substring(1).charAt(0).toUpperCase() + path.substring(2);
                     const active = isActive(path);

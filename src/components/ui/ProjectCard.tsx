@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Trophy } from 'lucide-react';
 
 interface ProjectCardProps {
     title: string;
@@ -12,6 +12,7 @@ interface ProjectCardProps {
     techStack?: string[];
     href?: string;
     status?: string;
+    awards?: string[];
 }
 
 export const ProjectCard = ({
@@ -22,7 +23,8 @@ export const ProjectCard = ({
     className,
     techStack = [],
     href,
-    status = "DEPLOYED"
+    status = "DEPLOYED",
+    awards = []
 }: ProjectCardProps) => {
     const cardRef = useRef<HTMLDivElement>(null);
     const [rotation, setRotation] = useState({ x: 0, y: 0 });
@@ -90,6 +92,21 @@ export const ProjectCard = ({
                         {description}
                     </p>
                 </div>
+
+                {awards.length > 0 && (
+                    <div className="flex flex-col gap-2 mt-2">
+                        {awards.map((award, i) => (
+                            <div key={i} className="flex items-center gap-2 group/award">
+                                <div className="p-1 rounded bg-yellow-400/10 text-yellow-600 transition-colors group-hover/award:bg-yellow-400/20">
+                                    <Trophy size={14} className="animate-pulse" />
+                                </div>
+                                <span className="text-[11px] font-bold text-yellow-700 tracking-tight uppercase italic drop-shadow-sm">
+                                    {award}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                )}
 
                 {header}
 
