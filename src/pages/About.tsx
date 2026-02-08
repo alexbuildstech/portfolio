@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import { Cpu, Box, User, Settings, Database, Terminal, Info, Clock, Trophy } from "lucide-react";
+import { Cpu, User, Settings, Database, Terminal, Info, Clock } from "lucide-react";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { useRobotStore } from "@/hooks/useRobotStore";
 import { NovaDiagramSVG, AssistiveTechDiagramSVG } from "@/components/ui/TechnicalDiagrams";
@@ -47,32 +47,6 @@ const About: React.FC = () => {
                         </div>
                     </div>
                 </header>
-
-                {/* Section 1.5: Achievements */}
-                <section className="mb-24 md:mb-48">
-                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-12 md:mb-16 border-b-4 md:border-b-8 border-foreground pb-4 inline-block">
-                        Achievements // Records
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                        {[
-                            { title: "SciBlast 3.0", award: "Winner", project: "Assistive Tech" },
-                            { title: "SciBlast 2.0", award: "Winner", project: "Nova Animatronics" },
-                            { title: "Sci Odyssey", award: "Winner", project: "Nova Humanoid" },
-                            { title: "Sci Odyssey", award: "Winner", project: "Robot Dog Prototype" }
-                        ].map((item, i) => (
-                            <div key={i} className="p-6 md:p-8 border-4 border-foreground bg-card shadow-[8px_8px_0_0_#0055ff] flex flex-col gap-4 transition-transform hover:-translate-y-1">
-                                <Trophy className="text-accent w-7 h-7 md:w-8 md:h-8" />
-                                <div className="space-y-1">
-                                    <h3 className="text-lg md:text-xl font-black uppercase tracking-tighter leading-none">{item.title}</h3>
-                                    <p className="text-[10px] md:text-xs font-mono font-bold text-accent uppercase tracking-widest">{item.award}</p>
-                                </div>
-                                <p className="text-xs md:text-sm font-bold uppercase opacity-60 leading-tight">
-                                    Project: {item.project}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
 
                 {/* Section 2: Projects */}
                 <section className="mb-24 md:mb-48">
@@ -140,19 +114,19 @@ const About: React.FC = () => {
                                         <div className="grid grid-cols-2 gap-6 md:gap-10 font-mono text-[9px] md:text-[11px] font-black uppercase">
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">DATABASE</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">SQLite Local</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">SQLite Local</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">SPATIAL</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">3D HRTF Audio</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">3D HRTF Audio</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">TRACKING</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Multi-CSRT</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">Multi-CSRT</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">RUNTIME</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Event-Driven</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">Event-Driven</div>
                                             </div>
                                         </div>
                                     </div>

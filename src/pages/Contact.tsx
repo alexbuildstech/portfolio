@@ -10,12 +10,11 @@ const Contact: React.FC = () => {
 
             <main className="max-w-7xl mx-auto flex flex-col items-start py-12 md:py-24 relative z-10">
                 <header className="mb-12 md:mb-32">
-                    <span className="text-xs font-mono font-black tracking-[0.5em] text-accent mb-4 block">OPEN CHANNELS</span>
-                    <h1 className="text-[12vw] md:text-[9vw] font-black uppercase tracking-tighter leading-tight mb-6">
-                        Let's<br /><span className="text-accent italic">Build</span>
+                    <h1 className="text-[12vw] md:text-[9vw] font-black uppercase tracking-tighter leading-none mb-6">
+                        Want to talk<br /><span className="text-accent italic">Robotics?</span>
                     </h1>
                     <p className="text-base md:text-3xl font-black tracking-tight max-w-xl opacity-90 uppercase leading-tight">
-                        Open to technical discussion, mentorship, hardware collaboration, and sponsors.
+                        Email me if you want to collaborate, mentor, or just talk shop.
                     </p>
                 </header>
 
@@ -29,11 +28,11 @@ const Contact: React.FC = () => {
                             <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0" />
                         </div>
                         <div className="space-y-3 md:space-y-4">
-                            <span className="text-[9px] md:text-[10px] font-mono font-black uppercase tracking-widest opacity-40">Direct_Access</span>
+                            <span className="text-[9px] md:text-[10px] font-mono font-black uppercase tracking-widest opacity-40">Direct_Email</span>
                             <h2 className="text-xl md:text-5xl font-black uppercase tracking-tighter leading-none break-all">alexazander3@gmail.com</h2>
                         </div>
                         <p className="text-[10px] md:text-xs font-mono font-bold opacity-60 mt-2 md:mt-4 uppercase">
-                            I read every technical email. Usually response in &lt;24H.
+                            I read everything. Usually back to you in a day.
                         </p>
                     </a>
 
@@ -52,7 +51,7 @@ const Contact: React.FC = () => {
                             <h2 className="text-2xl md:text-5xl font-black uppercase tracking-tighter leading-none">alexbuildstech</h2>
                         </div>
                         <p className="text-[10px] md:text-xs font-mono font-bold opacity-60 mt-2 md:mt-4 uppercase">
-                            Build history and experimental prototypes // GPL v3.0.
+                            Check the actual code and hardware logs.
                         </p>
                     </a>
                 </div>
@@ -85,7 +84,7 @@ const Contact: React.FC = () => {
                         </li>
                         <li className="flex flex-col gap-2 md:gap-3">
                             <span className="text-accent text-xs">06</span>
-                            <span>Project Sponsorship</span>
+                            <span>Project Support</span>
                         </li>
                     </ul>
                 </div>
