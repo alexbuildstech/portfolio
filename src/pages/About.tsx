@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import { Cpu, User, Settings, Database, Terminal, Info, Clock } from "lucide-react";
+import { Cpu, Box, User, Settings, Database, Terminal, Info, Clock, Trophy } from "lucide-react";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { useRobotStore } from "@/hooks/useRobotStore";
 import { NovaDiagramSVG, AssistiveTechDiagramSVG } from "@/components/ui/TechnicalDiagrams";
@@ -36,17 +36,43 @@ const About: React.FC = () => {
                         </h2>
                         <div className="space-y-6 md:space-y-8 text-sm md:text-base font-bold leading-relaxed opacity-80">
                             <p>
-                                I build physical systems because code is only interesting when it has consequences in the real world.
+                                I started building when I was very young. My first "projects" were simple mechanical toys, but I quickly realized that physical systems are the most interesting because code has actual consequences when it moves.
                             </p>
                             <p>
-                                My work has moved from mechanical prototypes to humanoid robotics, focusing on low-latency firmware and computer vision for real-time interaction.
+                                Over the last decade, I've moved from simple mechanical builds to humanoid robotics, focusing on how low-latency firmware can make machines feel responsive and alive.
                             </p>
                             <p>
-                                Currently developing humanoid actuation systems and spatial memory engines for indoor environmental awareness.
+                                Currently, I'm exploring how to bridge the gap between cloud-based AI reasoning and local, high-speed motor control.
                             </p>
                         </div>
                     </div>
                 </header>
+
+                {/* Section 1.5: Achievements */}
+                <section className="mb-24 md:mb-48">
+                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-12 md:mb-16 border-b-4 md:border-b-8 border-foreground pb-4 inline-block">
+                        Achievements // Records
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                        {[
+                            { title: "SciBlast 3.0", award: "Winner", project: "Assistive Tech" },
+                            { title: "SciBlast 2.0", award: "Winner", project: "Nova Animatronics" },
+                            { title: "Sci Odyssey", award: "Winner", project: "Nova Humanoid" },
+                            { title: "Sci Odyssey", award: "Winner", project: "Robot Dog Prototype" }
+                        ].map((item, i) => (
+                            <div key={i} className="p-6 md:p-8 border-4 border-foreground bg-card shadow-[8px_8px_0_0_#0055ff] flex flex-col gap-4 transition-transform hover:-translate-y-1">
+                                <Trophy className="text-accent w-7 h-7 md:w-8 md:h-8" />
+                                <div className="space-y-1">
+                                    <h3 className="text-lg md:text-xl font-black uppercase tracking-tighter leading-none">{item.title}</h3>
+                                    <p className="text-[10px] md:text-xs font-mono font-bold text-accent uppercase tracking-widest">{item.award}</p>
+                                </div>
+                                <p className="text-xs md:text-sm font-bold uppercase opacity-60 leading-tight">
+                                    Project: {item.project}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
 
                 {/* Section 2: Projects */}
                 <section className="mb-24 md:mb-48">
@@ -114,19 +140,19 @@ const About: React.FC = () => {
                                         <div className="grid grid-cols-2 gap-6 md:gap-10 font-mono text-[9px] md:text-[11px] font-black uppercase">
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">DATABASE</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">SQLite Local</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">SQLite Local</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">SPATIAL</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">3D HRTF Audio</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">3D HRTF Audio</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">TRACKING</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">Multi-CSRT</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Multi-CSRT</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
                                                 <div className="opacity-30">RUNTIME</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3">Event-Driven</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Event-Driven</div>
                                             </div>
                                         </div>
                                     </div>
@@ -164,31 +190,31 @@ const About: React.FC = () => {
                     <h2 className="text-3xl md:text-4xl font-black uppercase tracking-widest mb-12 md:mb-24 opacity-30 italic font-mono">
                         Hardware Stack // Laboratory Specs
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-foreground">
                         <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative">
                             <Box className="text-accent w-10 h-10 md:w-12 md:h-12" />
-                            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter">Production</h3>
-                            <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60">
+                            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-foreground">Production</h3>
+                            <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Anycubic Kobra 2 Neo</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Klipper-Tuned Firmware</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Polymaker Industrial PETG</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Structural Load Testing</li>
                             </ul>
                         </div>
-                        <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative">
+                        <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative text-foreground">
                             <Database className="text-accent w-10 h-10 md:w-12 md:h-12" />
-                            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter">Compute</h3>
-                            <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60">
+                            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-foreground">Compute</h3>
+                            <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Arduino Mega 2560</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Radxa Rock 5C (Primary)</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> NVIDIA Jetson Nano</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Serial Bus Orchestration</li>
                             </ul>
                         </div>
-                        <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative">
+                        <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative text-foreground">
                             <Terminal className="text-accent w-10 h-10 md:w-12 md:h-12" />
-                            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter">Logic</h3>
-                            <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60">
+                            <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-foreground">Logic</h3>
+                            <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Python 3.12+ (Async)</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> OpenCV SSD Detection</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Gemini 2.0 Flash VLM</li>
