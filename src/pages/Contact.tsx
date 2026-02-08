@@ -1,65 +1,105 @@
 import React from "react";
-import MatrixRain from "../components/effects/MatrixRain";
+import { Github, Mail, ArrowUpRight, Zap } from "lucide-react";
 import Navbar from "../components/layout/Navbar";
-import { motion } from "framer-motion";
 
 const Contact: React.FC = () => {
     return (
-        <main className="relative min-h-screen bg-black flex flex-col items-center justify-center p-8 sm:p-24 overflow-hidden selection:bg-primary/30">
-            {/* Background Layer - Terminal Rain */}
-            <MatrixRain opacity={0.15} speed={0.8} color="#00ffff" />
-
-            {/* Navbar */}
+        <div className="relative min-h-screen w-full pt-32 px-6 lg:px-24 bg-background overflow-x-hidden">
+            <div className="absolute inset-0 bg-grain pointer-events-none opacity-[0.02]" />
             <Navbar />
 
-            {/* Content Container */}
-            <div className="relative z-10 w-full max-w-3xl flex flex-col items-center space-y-24">
-                <div className="space-y-4 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="tech-box px-8 py-4 bg-black/50"
+            <main className="max-w-7xl mx-auto flex flex-col items-start py-24 relative z-10">
+                <header className="mb-32">
+                    <h1 className="text-[12vw] md:text-[9vw] font-black uppercase tracking-tighter leading-[0.8] mb-12">
+                        System<br /><span className="text-accent italic text-stroke">Inquiry</span>
+                    </h1>
+                    <p className="text-xl md:text-3xl font-black tracking-tight max-w-xl opacity-90 uppercase leading-[0.9]">
+                        I'm open to technical discussion, hardware collaboration, and sponsor inquiries.
+                    </p>
+                </header>
+
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <a 
+                        href="mailto:alexazander3@gmail.com"
+                        className="group p-16 border-[10px] border-foreground hover:bg-accent hover:text-white transition-all flex flex-col gap-12 relative overflow-hidden shadow-[20px_20px_0_0_#eeeeee] hover:shadow-none"
                     >
-                        <span className="text-primary font-mono text-[10px] tracking-widest uppercase block mb-2 opacity-60">/ Connection_Port</span>
-                        <h1
-                            className="text-[12vw] sm:text-[15vw] leading-[0.8] font-bold text-white uppercase tracking-tighter"
-                            style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                        >
-                            OUT<span className="text-primary">REACH</span>
-                        </h1>
-                    </motion.div>
+                        <div className="flex justify-between items-start">
+                            <Mail size={56} />
+                            <ArrowUpRight size={40} className="opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0" />
+                        </div>
+                        <div className="space-y-4">
+                            <span className="text-[10px] font-mono font-black uppercase tracking-widest opacity-40">Direct_Access</span>
+                            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none break-all">alexazander3@gmail.com</h2>
+                        </div>
+                        <p className="text-xs font-mono font-bold opacity-60 mt-4 uppercase">
+                            Target Response: &lt;24H // I read every message.
+                        </p>
+                    </a>
+
+                    <a 
+                        href="https://github.com/alexbuildstech"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group p-16 border-[10px] border-foreground hover:bg-accent hover:text-white transition-all flex flex-col gap-12 relative overflow-hidden shadow-[20px_20px_0_0_#eeeeee] hover:shadow-none"
+                    >
+                        <div className="flex justify-between items-start">
+                            <Github size={56} />
+                            <ArrowUpRight size={40} className="opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0" />
+                        </div>
+                        <div className="space-y-4">
+                            <span className="text-[10px] font-mono font-black uppercase tracking-widest opacity-40">Source_Control</span>
+                            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">alexbuildstech</h2>
+                        </div>
+                        <p className="text-xs font-mono font-bold opacity-60 mt-4 uppercase">
+                            Public Repository Access // GPL/MIT Compliance.
+                        </p>
+                    </a>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-2xl">
-                    {/* Phone Section */}
-                    <div className="tech-box flex flex-col items-center md:items-start space-y-4 group hover:border-primary/50 transition-colors">
-                        <span className="text-primary/40 font-mono text-[9px] uppercase tracking-widest">// Tel</span>
-                        <a
-                            href="tel:+919265763478"
-                            className="text-xl font-mono text-white hover:text-primary transition-colors tracking-tight"
-                        >
-                            +91 9265763478
-                        </a>
+                <div className="mt-32 p-16 border-[10px] border-foreground w-full bg-muted relative shadow-[16px_16px_0_0_#0055ff]">
+                    <div className="flex items-center gap-8 mb-16">
+                        <Zap className="text-accent" size={48} fill="currentColor" />
+                        <h3 className="text-4xl font-black uppercase tracking-tighter italic">Technical Liaison</h3>
                     </div>
-
-                    {/* Email Section */}
-                    <div className="tech-box flex flex-col items-center md:items-start space-y-4 group hover:border-primary/50 transition-colors">
-                        <span className="text-primary/40 font-mono text-[9px] uppercase tracking-widest">// Email</span>
-                        <a
-                            href="mailto:alexazander3@gmail.com"
-                            className="text-lg font-mono text-white hover:text-primary transition-colors tracking-tight"
-                        >
-                            alexazander3@gmail.com
-                        </a>
-                    </div>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-sm font-black uppercase tracking-tight opacity-80">
+                        <li className="flex flex-col gap-3">
+                            <span className="text-accent font-mono text-xs">01</span>
+                            <span>Humanoid Architecture & Actuation</span>
+                        </li>
+                        <li className="flex flex-col gap-3">
+                            <span className="text-accent font-mono text-xs">02</span>
+                            <span>Computer Vision (VLM/OpenCV)</span>
+                        </li>
+                        <li className="flex flex-col gap-3">
+                            <span className="text-accent font-mono text-xs">03</span>
+                            <span>Low-latency C++ / Python Pipelines</span>
+                        </li>
+                        <li className="flex flex-col gap-3">
+                            <span className="text-accent font-mono text-xs">04</span>
+                            <span>Mechanical Prototyping (FDM/CAD)</span>
+                        </li>
+                        <li className="flex flex-col gap-3">
+                            <span className="text-accent font-mono text-xs">05</span>
+                            <span>Open-Source Hardware Systems</span>
+                        </li>
+                        <li className="flex flex-col gap-3">
+                            <span className="text-accent font-mono text-xs">06</span>
+                            <span>Material Sponsorship Support</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <div className="font-mono text-[8px] text-primary/20 uppercase tracking-[0.6em]">
-                    Terminal_Active // 2024
-                </div>
+                <footer className="mt-64 w-full border-t-[10px] border-foreground pt-12 flex justify-between items-center opacity-40 font-mono text-[11px] font-black uppercase tracking-widest">
+                    <span>Alex Paul // Builder Protocol v2.0.26</span>
+                    <span className="text-right">Asia/Calcutta // 12.9716° N, 77.5946° E</span>
+                </footer>
+            </main>
+            
+            {/* Background Stamp */}
+            <div className="absolute top-20 left-1/2 -translate-x-1/2 pointer-events-none opacity-[0.02] select-none whitespace-nowrap z-0">
+                <h2 className="text-[30vw] font-black leading-none">INQUIRY</h2>
             </div>
-        </main>
+        </div>
     );
 };
 

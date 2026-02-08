@@ -1,74 +1,119 @@
-import React, { Suspense, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import Spline from "@splinetool/react-spline";
 import { cn } from "@/lib/utils";
-import { useScroll, useTransform, motion, useSpring } from "framer-motion";
+import { useRobotStore } from "@/hooks/useRobotStore";
+import gsap from "gsap";
 
 interface Robot3DProps {
     scene?: string;
     className?: string;
     onLoad?: () => void;
-    scrollRotation?: [number, number]; // [startAngle, endAngle]
-    scrollPosition?: [number, number]; // [startY, endY]
-    scrollScale?: [number, number];    // [startScale, endScale]
 }
 
 const Robot3D: React.FC<Robot3DProps> = ({
     scene = "https://prod.spline.design/FBmixDtRPIKSLaHc/scene.splinecode",
     className,
-    onLoad,
-    scrollRotation = [0, 45],
-    scrollPosition = [0, 0],
-    scrollScale = [1, 1]
+    onLoad
 }) => {
     const splineRef = useRef<any>(null);
-    const { scrollYProgress } = useScroll();
+    const headRef = useRef<any>(null);
+    const cameraRef = useRef<any>(null);
 
-    // Smooth transitions for a premium feel
-    const rotation = useTransform(scrollYProgress, [0, 1], scrollRotation);
-    const positionY = useTransform(scrollYProgress, [0, 1], scrollPosition);
-    const scale = useTransform(scrollYProgress, [0, 1], scrollScale);
+    const { mouseX, mouseY, cameraState, isRobotLoaded, setIsRobotLoaded, activeInput } = useRobotStore();
 
-    const smoothRotation = useSpring(rotation, { damping: 20, stiffness: 100 });
-    const smoothPositionY = useSpring(positionY, { damping: 20, stiffness: 100 });
-    const smoothScale = useSpring(scale, { damping: 20, stiffness: 100 });
+    const SMOOTHING = 0.08;
+
+    const CAMERA_POSITIONS = {
+        home: { x: 400, y: 0, z: 1100, rx: 0, ry: 0.1, rz: 0 },
+        about: { x: -300, y: 200, z: 700, rx: -0.2, ry: 0.6, rz: 0 },
+        contact: { x: 900, y: -400, z: 900, rx: 0.3, ry: -0.4, rz: 0 }
+    };
+
+    const handleLoad = (spline: any) => {
+        splineRef.current = spline;
+        setIsRobotLoaded(true);
+
+        const cam = spline.findObjectByName('Camera') || spline.findObjectByName('Personal Camera');
+        const head = spline.findObjectByName('Head');
+
+        if (cam) cameraRef.current = cam;
+        if (head) headRef.current = head;
+
+        if (onLoad) onLoad();
+    };
 
     useEffect(() => {
-        const updateSpline = () => {
-            if (splineRef.current) {
-                // Assuming the scene has a main object or camera we want to rotate
-                // This is a generic approach; specific Spline objects can be found by name
-                const obj = splineRef.current.findObjectByName('Robot') || splineRef.current.findObjectByName('Main');
-                if (obj) {
-                    obj.rotation.y = (smoothRotation.get() * Math.PI) / 180;
-                    obj.position.y = smoothPositionY.get();
-                    obj.scale.set(smoothScale.get(), smoothScale.get(), smoothScale.get());
-                }
+        if (!cameraRef.current) return;
+        const target = CAMERA_POSITIONS[cameraState as keyof typeof CAMERA_POSITIONS] || CAMERA_POSITIONS.home;
+
+        gsap.to(cameraRef.current.position, {
+            x: target.x,
+            y: target.y,
+            z: target.z,
+            duration: 3,
+            ease: "expo.inOut"
+        });
+
+        gsap.to(cameraRef.current.rotation, {
+            x: target.rx,
+            y: target.ry,
+            z: target.rz,
+            duration: 3,
+            ease: "expo.inOut"
+        });
+    }, [cameraState, isRobotLoaded]);
+
+    useEffect(() => {
+        let frameId: number;
+        let time = 0;
+
+        const animate = () => {
+            time += 0.02;
+            if (headRef.current) {
+                const breathingOffset = Math.sin(time * 0.5) * 0.015;
+                let targetX = (mouseX - 0.5) * 0.7;
+                let targetY = activeInput ? 0.3 : (-mouseY * 0.3) + 0.1;
+
+                targetX = Math.max(-0.4, Math.min(0.4, targetX));
+                targetY = Math.max(-0.25, Math.min(0.25, targetY));
+
+                const currentX = headRef.current.rotation.x || 0;
+                const currentY = headRef.current.rotation.y || 0;
+
+                headRef.current.rotation.x += (targetY + breathingOffset - currentX) * SMOOTHING;
+                headRef.current.rotation.y += (targetX - currentY) * SMOOTHING;
             }
+            frameId = requestAnimationFrame(animate);
         };
 
-        const unsubscribe = smoothRotation.on("change", updateSpline);
-        return () => unsubscribe();
-    }, [smoothRotation, smoothPositionY, smoothScale]);
+        if (isRobotLoaded) {
+            animate();
+        }
+
+        return () => cancelAnimationFrame(frameId);
+    }, [mouseX, mouseY, activeInput, isRobotLoaded]);
+
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    if (isMobile) return null;
 
     return (
-        <div className={cn("relative w-full h-full flex items-center justify-center overflow-hidden", className)}>
-            <Suspense fallback={
-                <div className="flex flex-col items-center justify-center h-full w-full bg-black gap-4">
-                    <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-                    <div className="font-mono text-[10px] tracking-widest text-primary uppercase">Loading 3D Workspace...</div>
-                </div>
-            }>
-                <div className="w-full h-full flex items-center justify-center">
-                    <Spline
-                        scene={scene}
-                        className="w-full h-full pointer-events-auto"
-                        onLoad={(spline) => {
-                            splineRef.current = spline;
-                            if (onLoad) onLoad();
-                        }}
-                    />
-                </div>
-            </Suspense>
+        <div className={cn("relative w-full h-full flex items-center justify-center pointer-events-none grayscale contrast-125 saturate-0", className)}>
+            <div className="absolute inset-0 bg-background/10 z-10 pointer-events-none" />
+            <Spline
+                scene={scene}
+                className={cn("w-full h-full transition-opacity duration-2000", isRobotLoaded ? "opacity-30 lg:opacity-60" : "opacity-0")}
+                onLoad={handleLoad}
+            />
         </div>
     );
 };

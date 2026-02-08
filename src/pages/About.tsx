@@ -1,170 +1,202 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import TimelineItem from "../components/ui/TimelineItem";
-import { BackgroundGradientAnimation } from "../components/ui/background-gradient-animation";
-import { motion } from "framer-motion";
+import { Cpu, Box, User, Settings, Database, Terminal, Award, Trophy } from "lucide-react";
+import { ProjectCard } from "@/components/ui/ProjectCard";
+import { useRobotStore } from "@/hooks/useRobotStore";
+import { NovaDiagramSVG, AssistiveTechDiagramSVG } from "@/components/ui/TechnicalDiagrams";
 
 const About: React.FC = () => {
-    // Scroll to top on mount
+    const { setIsRobotLoaded } = useRobotStore();
+
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
-
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        setIsRobotLoaded(true);
+    }, [setIsRobotLoaded]);
 
     return (
-        <div className="relative min-h-screen w-full bg-background overflow-y-auto selection:bg-primary/30">
-            {/* Background Animation (Muted & Deep) */}
-            <div className="fixed inset-0 z-0 opacity-10 grayscale">
-                <BackgroundGradientAnimation containerClassName="h-full w-full" />
-            </div>
+        <div className="relative min-h-screen w-full pt-32 pb-20 px-6 lg:px-24 bg-background overflow-x-hidden text-foreground">
+            <div className="absolute inset-0 bg-grain pointer-events-none opacity-[0.02]" />
+            <Navbar />
 
-            {/* Content Container */}
-            <div className="relative z-20 w-full">
-                <Navbar />
-
-                <main className="relative flex flex-col items-center p-8 pt-48 md:pt-56 pointer-events-none overflow-x-hidden">
-                    <div className="w-full max-w-6xl flex flex-col items-center">
-
-                        {/* Technical Log Header */}
-                        <div className="relative w-full max-w-4xl mb-48 flex flex-col items-start px-4 sm:px-8 border-none pointer-events-auto">
-                            <motion.div
-                                initial={{ opacity: 0, x: -5 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="flex items-center gap-4 mb-6"
-                            >
-                                <span className="text-primary font-mono text-[10px] tracking-widest uppercase opacity-60">/ SRC: BUILD_ARCHIVE</span>
-                                <div className="w-8 h-[1px] bg-primary/20"></div>
-                            </motion.div>
-
-                            <motion.h1
-                                initial={{ opacity: 0, y: 5 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: 0.1 }}
-                                className="text-[10vw] sm:text-[12vw] leading-[0.85] font-bold text-white uppercase tracking-tighter mb-12 font-sans"
-                            >
-                                ALEX<br />
-                                <span className="text-primary">PAUL</span>
-                            </motion.h1>
-
-                            <motion.p
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.4, delay: 0.2 }}
-                                className="text-foreground/80 text-lg md:text-xl font-mono max-w-2xl border-l-2 border-primary pl-8 py-2 leading-relaxed"
-                            >
-                                Building robots and embedded software from my workspace.
-                            </motion.p>
-
-                            {/* Philosophy / Approach Section */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className="mt-24 w-full grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-white/10 pt-12"
-                            >
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white mb-4 font-sans">ENGINEERING PHILOSOPHY</h3>
-                                    <p className="text-white/60 font-mono text-sm leading-relaxed">
-                                        I believe in "first principles" thinking—stripping a problem down to its core mathematical and physical truths. My work bridges the gap between high-level AI reasoning and low-level hardware control, ensuring that intelligent systems are grounded in physical reality.
-                                    </p>
-                                </div>
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white mb-4 font-sans">CORE FOCUS</h3>
-                                    <ul className="text-white/60 font-mono text-sm space-y-2">
-                                        <li className="flex items-center gap-2">
-                                            <span className="text-primary">&gt;</span> Latency Optimization
-                                        </li>
-                                        <li className="flex items-center gap-2">
-                                            <span className="text-primary">&gt;</span> Edge Inference
-                                        </li>
-                                        <li className="flex items-center gap-2">
-                                            <span className="text-primary">&gt;</span> Human-Robot Interaction
-                                        </li>
-                                    </ul>
-                                </div>
-                            </motion.div>
-                        </div>
-
-                        {/* Project Feed */}
-                        <div className="relative w-full max-w-4xl px-4 sm:px-8 pb-64 pointer-events-auto">
-                            <div className="space-y-24">
-                                <div className="flex items-center gap-6 mb-16 opacity-30">
-                                    <span className="font-mono text-[10px] tracking-widest">[ PROJECT_FEED ]</span>
-                                    <span className="flex-grow h-[1px] bg-foreground/10"></span>
-                                </div>
-
-                                <div className="flex flex-col space-y-32">
-                                    <TimelineItem
-                                        title={<span className="font-sans text-3xl">Nova Humanoid</span>}
-                                        subtitle="Hardware Build & Control"
-                                        date="2023 // VER_1.0"
-                                        tags={["CAD", "PYTHON", "3D_PRINT"]}
-                                        description={
-                                            <div className="space-y-6 text-foreground font-mono leading-relaxed text-sm">
-                                                <p className="opacity-80">
-                                                    Constructed a full-scale humanoid chassis focusing on articulated joint torque and low-latency motor control.
-                                                </p>
-                                                <div className="pt-4 space-y-4">
-                                                    <span className="text-primary/50 text-[10px] uppercase font-bold tracking-widest">Supported by:</span>
-                                                    <div className="flex flex-wrap gap-8 opacity-60">
-                                                        <span className="text-[11px]">DFRobot</span>
-                                                        <span className="text-[11px]">Polymaker</span>
-                                                        <span className="text-[11px]">Radxa</span>
-                                                    </div>
-                                                </div>
-                                                <div className="pt-8">
-                                                    <a href="https://github.com/alexbuildstech/nova" target="_blank" rel="noreferrer" className="tech-box inline-flex items-center gap-4 text-[10px] uppercase tracking-widest text-primary hover:bg-primary/5 transition-colors">
-                                                        ACCESS_REPOSITORY_LOG [&gt;]
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        }
-                                    />
-
-                                    <TimelineItem
-                                        title={<span className="font-sans text-3xl">Assistive Tech</span>}
-                                        subtitle="Spatial Navigation"
-                                        date="2024 // PROTOTYPE"
-                                        tags={["VISION", "RPi", "AUDIO"]}
-                                        description={
-                                            <div className="space-y-6 text-foreground font-mono leading-relaxed text-sm">
-                                                <p className="opacity-80">
-                                                    Converting visual depth data into spatial audio for navigation. Built on edge hardware with optimized inference models.
-                                                </p>
-                                                <div className="pt-8">
-                                                    <a href="https://github.com/alexbuildstech/assistivetech" target="_blank" rel="noreferrer" className="tech-box inline-flex items-center gap-4 text-[10px] uppercase tracking-widest text-primary hover:bg-primary/5 transition-colors">
-                                                        SOURCE_CODE [&gt;]
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        }
-                                    />
-
-                                    <TimelineItem
-                                        title={<span className="font-sans text-3xl">OpenClaw Agent</span>}
-                                        subtitle="Autonomous Workflow"
-                                        date="2025 // ACTIVE"
-                                        isLast={true}
-                                        tags={["AI", "TYPESCRIPT", "AUTOMATION"]}
-                                        description={
-                                            <div className="space-y-6 text-foreground font-mono leading-relaxed text-sm">
-                                                <p className="opacity-80">
-                                                    Developing a recursive agentic framework capable of self-correction and complex multi-step task execution.
-                                                    Currently optimizing for local LLM inference and tool-use latency.
-                                                </p>
-                                                <div className="pt-8">
-                                                    <span className="text-primary/40 text-[10px] uppercase tracking-widest">PRIVATE_REPO // IN_PROGRESS</span>
-                                                </div>
-                                            </div>
-                                        }
-                                    />
-                                </div>
-                            </div>
+            <div className="max-w-7xl mx-auto relative z-10">
+                {/* Section 1: The Persona */}
+                <header className="mb-48 flex flex-col gap-12">
+                    <div>
+                        <h1 className="text-[12vw] md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] mb-8">
+                            Physical<br /><span className="text-accent">Execution</span>
+                        </h1>
+                        <div className="max-w-md text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">
+                            Alex Paul. 14. India. Engineering depth over surface-level motivation.
                         </div>
                     </div>
-                </main>
+                    
+                    <div className="max-w-3xl space-y-12 p-12 md:p-16 border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto">
+                        <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight flex items-center gap-6">
+                            <User className="text-accent" size={48} /> The Story
+                        </h2>
+                        <div className="space-y-8 text-sm md:text-base font-bold leading-relaxed uppercase tracking-tight opacity-80">
+                            <p>
+                                I build physical intelligence because code is only interesting when it has consequences in the real world.
+                            </p>
+                            <p>
+                                I spend my time in the weeds—tuning PID loops, optimizing inverse kinematics, and engineering computer vision pipelines for edge compute. No fluff. Just hardware that works.
+                            </p>
+                            <p>
+                                Currently developing humanoid actuation systems and spatial memory engines for assistive tech.
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+                {/* Section 1.5: Achievements */}
+                <section className="mb-48">
+                    <h2 className="text-4xl font-black uppercase tracking-tighter mb-16 border-b-8 border-foreground pb-4 inline-block">
+                        Achievements // Records
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            { title: "SciBlast 3.0", award: "Winner", project: "Assistive Tech" },
+                            { title: "SciBlast 2.0", award: "Winner", project: "Nova Animatronics" },
+                            { title: "Sci Odyssey", award: "Winner", project: "Nova Humanoid" },
+                            { title: "Sci Odyssey", award: "Winner", project: "Robot Dog Prototype" }
+                        ].map((item, i) => (
+                            <div key={i} className="p-8 border-4 border-foreground bg-card shadow-[8px_8px_0_0_#0055ff] flex flex-col gap-4">
+                                <Trophy className="text-accent" size={32} />
+                                <div className="space-y-1">
+                                    <h3 className="text-xl font-black uppercase tracking-tighter leading-none">{item.title}</h3>
+                                    <p className="text-xs font-mono font-bold text-accent uppercase tracking-widest">{item.award}</p>
+                                </div>
+                                <p className="text-sm font-bold uppercase opacity-60 leading-tight">
+                                    Project: {item.project}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Section 2: Projects */}
+                <section className="mb-48">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 border-b-8 border-foreground pb-8 gap-4">
+                        <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
+                            Technical<br />Stacks
+                        </h2>
+                        <span className="text-xs font-mono font-black opacity-30 tracking-[0.5em] mb-2 uppercase text-foreground">LATEST DEPLOYS</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                        <ProjectCard
+                            title="Nova AI Stack"
+                            description="An independent autonomous stack for expressive humanoids. Implements an asynchronous vision-to-action pipeline using Gemini 2.0 and specialized NLU patterns for context-aware interaction."
+                            techStack={["Python", "Groq LLM", "Gemini 2.0", "OpenCV", "Kinematics"]}
+                            href="https://github.com/alexbuildstech/nova"
+                            status="ACTIVE BUILD"
+                            icon={<Cpu size={32} />}
+                            imageSrc="./nova_technical_v2.png"
+                            header={
+                                <div className="space-y-8">
+                                    <div className="w-full bg-white border-4 border-foreground p-4 overflow-hidden">
+                                        <NovaDiagramSVG className="w-full h-auto" />
+                                    </div>
+                                    <div className="p-10 border-4 border-foreground bg-muted text-foreground">
+                                        <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">ACTUATION</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3 text-foreground">27 DOF Active</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">VISION</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3 text-foreground">720p Real-time</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">COMPUTE</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3 text-foreground">Radxa / Jetson</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">LATENCY</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3 text-foreground">&lt;180ms Pipeline</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        />
+
+                        <ProjectCard
+                            title="Vision Array"
+                            description="Assistive navigation system exploring spatial memory. Features local-first object persistence (SQLite) and 3D audio heuristics (HRTF) for environment guidance."
+                            techStack={["Python", "SQLite3", "CSRT", "Spatial Audio", "Gemini Pro"]}
+                            href="https://github.com/alexbuildstech/assistivetech"
+                            status="R&D STAGE"
+                            icon={<Settings size={32} />}
+                            imageSrc="./assistive_tech_diagram.png"
+                            header={
+                                <div className="p-10 border-4 border-foreground bg-muted text-foreground">
+                                    <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">DATABASE</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3 text-foreground">SQLite Local</div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">SPATIAL</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3 text-foreground">3D HRTF Audio</div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">TRACKING</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3 text-foreground">Multi-CSRT</div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">RUNTIME</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3 text-foreground">Event-Driven</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        />
+                    </div>
+                </section>
+
+                {/* Section 3: Hardware Inventory */}
+                <section className="border-t-8 border-foreground pt-32 mb-48">
+                    <h2 className="text-4xl font-black uppercase tracking-widest mb-24 opacity-30 italic">
+                        Inventory // Laboratory Specs
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-foreground">
+                        <div className="p-12 border-4 border-foreground space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative">
+                            <Box size={48} className="text-accent" />
+                            <h3 className="text-2xl font-black uppercase tracking-tighter text-foreground">Production</h3>
+                            <ul className="space-y-4 font-mono text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
+                                <li className="flex items-center gap-3"><span>•</span> Anycubic Kobra 2 Neo</li>
+                                <li className="flex items-center gap-3"><span>•</span> Klipper-Tuned Firmware</li>
+                                <li className="flex items-center gap-3"><span>•</span> Polymaker Industrial</li>
+                                <li className="flex items-center gap-3"><span>•</span> Structural Testing</li>
+                            </ul>
+                        </div>
+                        <div className="p-12 border-4 border-foreground space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative text-foreground">
+                            <Database size={48} className="text-accent" />
+                            <h3 className="text-2xl font-black uppercase tracking-tighter text-foreground">Compute</h3>
+                            <ul className="space-y-4 font-mono text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
+                                <li className="flex items-center gap-3"><span>•</span> Arduino Mega / Uno</li>
+                                <li className="flex items-center gap-3"><span>•</span> Radxa Boards</li>
+                                <li className="flex items-center gap-3"><span>•</span> NVIDIA Jetson Nano</li>
+                                <li className="flex items-center gap-3"><span>•</span> Multi-Bus Control</li>
+                            </ul>
+                        </div>
+                        <div className="p-12 border-4 border-foreground space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative text-foreground">
+                            <Terminal size={48} className="text-accent" />
+                            <h3 className="text-2xl font-black uppercase tracking-tighter text-foreground">Logic</h3>
+                            <ul className="space-y-4 font-mono text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
+                                <li className="flex items-center gap-3"><span>•</span> Python 3.14</li>
+                                <li className="flex items-center gap-3"><span>•</span> OpenCV / Mediapipe</li>
+                                <li className="flex items-center gap-3"><span>•</span> VLM Integration</li>
+                                <li className="flex items-center gap-3"><span>•</span> Kinematics Solvers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <div className="fixed bottom-20 left-10 pointer-events-none opacity-[0.02] select-none z-0">
+                <h2 className="text-[25vw] font-black leading-none">PROTOCOL</h2>
             </div>
         </div>
     );
