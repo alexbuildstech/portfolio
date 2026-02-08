@@ -23,16 +23,16 @@ const About: React.FC = () => {
                 <header className="mb-24 md:mb-48 flex flex-col gap-8 md:gap-12">
                     <div>
                         <h1 className="text-[14vw] md:text-[8vw] font-black uppercase tracking-tighter leading-none mb-6 md:mb-8">
-                            Physical<br /><span className="text-accent">Execution</span>
+                            Building<br /><span className="text-accent">Robots</span>
                         </h1>
                         <div className="max-w-xl text-lg md:text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">
-                            I build robots and look for collaborators to push the limits of humanoid autonomy.
+                            I build humanoid robots and figure out physical autonomy systems.
                         </div>
                     </div>
                     
                     <div className="max-w-3xl space-y-8 md:space-y-12 p-8 md:p-16 border-4 md:border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto font-mono uppercase tracking-tight">
-                        <h2 className="text-2xl md:text-4xl font-black flex items-center gap-4 md:gap-6">
-                            <Clock className="text-accent w-8 h-8 md:w-12 md:h-12" /> The Progression
+                        <h2 className="text-2xl md:text-4xl font-black flex items-center gap-4 md:gap-6 lowercase">
+                            <Clock className="text-accent w-8 h-8 md:w-12 md:h-12" /> the learning arc
                         </h2>
                         <div className="space-y-6 md:space-y-8 text-sm md:text-base font-bold leading-relaxed opacity-80">
                             <p>
