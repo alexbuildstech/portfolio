@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <section className="relative w-full h-screen flex flex-col items-start justify-center px-6 lg:px-24 pointer-events-none overflow-hidden bg-background">
+    <section className="relative w-full min-h-[auto] md:min-h-screen flex flex-col items-start justify-center px-4 md:px-6 lg:px-24 pt-20 pb-12 md:pt-0 md:pb-0 pointer-events-none overflow-hidden bg-background">
       <div className="absolute inset-0 bg-grain pointer-events-none" />
       
       <motion.div 

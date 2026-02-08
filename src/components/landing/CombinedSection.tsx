@@ -15,10 +15,10 @@ const CombinedSection: React.FC = () => {
     };
     
     return (
-        <section className="relative w-full py-24 md:py-48 px-6 lg:px-24 border-t-8 border-foreground bg-background overflow-hidden">
+        <section className="relative w-full py-16 md:py-48 px-4 md:px-6 lg:px-24 border-t-8 border-foreground bg-background overflow-hidden">
             <div className="absolute inset-0 bg-grain pointer-events-none opacity-[0.03]" />
             
-            <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-24 lg:gap-48 relative z-10">
+            <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-16 lg:gap-48 relative z-10">
                 
                 {/* Left: Capability Stack */}
                 <div className="space-y-12 md:space-y-24 pointer-events-auto">
@@ -43,13 +43,12 @@ const CombinedSection: React.FC = () => {
                         ].map((item, i) => (
                             <motion.div 
                                 key={i}
-                                variants={cardVariants}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true, delay: i * 0.05 }}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                                 className="p-6 md:p-10 border-4 border-foreground hover:bg-foreground hover:text-background transition-all duration-300 group cursor-crosshair relative shadow-[8px_8px_0_0_#eeeeee] hover:shadow-none"
                             >
-                                <item.icon className="mb-6 text-accent" size={32} md:size={40} strokeWidth={3} />
+                                <item.icon className="mb-6 text-accent w-8 h-8 md:w-10 md:h-10" strokeWidth={3} />
                                 <h3 className="text-base md:text-xl font-black uppercase mb-4 tracking-tighter">{item.title}</h3>
                                 <p className="text-[10px] font-bold leading-tight opacity-50 group-hover:opacity-100 uppercase tracking-widest">
                                     {item.desc}
@@ -89,7 +88,7 @@ const CombinedSection: React.FC = () => {
                     >
                         <div className="flex justify-between items-start">
                             <span className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none">V2.0</span>
-                            <Zap className="text-accent" size={40} md:size={56} fill="currentColor" />
+                            <Zap className="text-accent w-10 h-10 md:w-14 md:h-14" fill="currentColor" />
                         </div>
                         <div className="space-y-4 md:space-y-6 font-mono text-[10px] font-black uppercase tracking-widest opacity-60">
                             <div className="flex justify-between border-b border-white/10 pb-2">
