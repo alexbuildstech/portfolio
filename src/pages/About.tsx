@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import { Cpu, Box, User, Settings, Database, Terminal, Award, Trophy } from "lucide-react";
+import { Cpu, Box, User, Settings, Database, Terminal, Trophy, Info, AlertTriangle } from "lucide-react";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { useRobotStore } from "@/hooks/useRobotStore";
 import { NovaDiagramSVG, AssistiveTechDiagramSVG } from "@/components/ui/TechnicalDiagrams";
@@ -23,142 +23,148 @@ const About: React.FC = () => {
                 <header className="mb-24 md:mb-48 flex flex-col gap-8 md:gap-12">
                     <div>
                         <h1 className="text-[14vw] md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] mb-6 md:mb-8">
-                            Physical<br /><span className="text-accent">Execution</span>
+                            Technical<br /><span className="text-accent text-stroke">Execution</span>
                         </h1>
                         <div className="max-w-md text-xl md:text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">
-                            Alex Paul. 14. India. Engineering depth over surface-level motivation.
+                            I build experimental robotics and AI systems focused on real-world interaction, not demos.
                         </div>
                     </div>
                     
-                    <div className="max-w-3xl space-y-8 md:space-y-12 p-8 md:p-16 border-4 md:border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto">
-                        <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight flex items-center gap-4 md:gap-6">
-                            <User className="text-accent w-8 h-8 md:w-12 md:h-12" /> The Story
+                    <div className="max-w-3xl space-y-8 md:space-y-12 p-8 md:p-16 border-4 md:border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto font-mono uppercase tracking-tight">
+                        <h2 className="text-2xl md:text-4xl font-black flex items-center gap-4 md:gap-6">
+                            <User className="text-accent w-8 h-8 md:w-12 md:h-12" /> Design Decisions
                         </h2>
-                        <div className="space-y-6 md:space-y-8 text-sm md:text-base font-bold leading-relaxed uppercase tracking-tight opacity-80">
+                        <div className="space-y-6 md:space-y-8 text-sm md:text-base font-bold leading-relaxed opacity-80">
                             <p>
                                 I build physical intelligence because code is only interesting when it has consequences in the real world.
                             </p>
                             <p>
-                                I spend my time in the weeds—tuning PID loops, optimizing inverse kinematics, and engineering computer vision pipelines for edge compute. No fluff. Just hardware that works.
+                                I prioritize low-latency firmware and edge compute optimization. Vanishingly small performance gains are worth the engineering effort when hardware latency breaks the user experience.
                             </p>
                             <p>
-                                Currently developing humanoid actuation systems and spatial memory engines for assistive tech.
+                                Currently developing humanoid actuation systems and spatial memory engines for indoor environmental awareness.
                             </p>
                         </div>
                     </div>
                 </header>
 
-                {/* Section 1.5: Achievements */}
-                <section className="mb-24 md:mb-48">
-                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-12 md:mb-16 border-b-4 md:border-b-8 border-foreground pb-4 inline-block">
-                        Achievements // Records
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                        {[
-                            { title: "SciBlast 3.0", award: "Winner", project: "Assistive Tech" },
-                            { title: "SciBlast 2.0", award: "Winner", project: "Nova Animatronics" },
-                            { title: "Sci Odyssey", award: "Winner", project: "Nova Humanoid" },
-                            { title: "Sci Odyssey", award: "Winner", project: "Robot Dog Prototype" }
-                        ].map((item, i) => (
-                            <div key={i} className="p-6 md:p-8 border-4 border-foreground bg-card shadow-[8px_8px_0_0_#0055ff] flex flex-col gap-4 transition-transform hover:-translate-y-1">
-                                <Trophy className="text-accent w-7 h-7 md:w-8 md:h-8" />
-                                <div className="space-y-1">
-                                    <h3 className="text-lg md:text-xl font-black uppercase tracking-tighter leading-none">{item.title}</h3>
-                                    <p className="text-[10px] md:text-xs font-mono font-bold text-accent uppercase tracking-widest">{item.award}</p>
-                                </div>
-                                <p className="text-xs md:text-sm font-bold uppercase opacity-60 leading-tight">
-                                    Project: {item.project}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
                 {/* Section 2: Projects */}
                 <section className="mb-24 md:mb-48">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-24 border-b-4 md:border-b-8 border-foreground pb-6 md:pb-8 gap-4">
-                        <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
-                            Technical<br />Stacks
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-24 border-b-4 md:border-b-8 border-foreground pb-6 md:pb-8 gap-4 uppercase tracking-tighter font-black">
+                        <h2 className="text-5xl md:text-8xl">
+                            Experimental<br />Stacks
                         </h2>
-                        <span className="text-[10px] font-mono font-black opacity-30 tracking-[0.4em] mb-2 uppercase text-foreground">LATEST DEPLOYS</span>
+                        <span className="text-[10px] font-mono opacity-30 tracking-[0.4em] mb-2">LATEST DEPLOYS</span>
                     </div>
                     
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
-                        <ProjectCard
-                            title="Nova AI Stack"
-                            description="An independent autonomous stack for expressive humanoids. Implements an asynchronous vision-to-action pipeline using Gemini 2.0 and specialized NLU patterns for context-aware interaction."
-                            techStack={["Python", "Groq LLM", "Gemini 2.0", "OpenCV", "Kinematics"]}
-                            href="https://github.com/alexbuildstech/nova"
-                            status="ACTIVE BUILD"
-                            icon={<Cpu className="w-6 h-6 md:w-8 md:h-8" />}
-                            imageSrc="./nova_technical_v2.png"
-                            header={
-                                <div className="space-y-6 md:space-y-8">
-                                    <div className="w-full bg-white border-2 md:border-4 border-foreground p-2 md:p-4 overflow-hidden">
-                                        <NovaDiagramSVG className="w-full h-auto" />
+                        {/* Nova AI Stack */}
+                        <div className="space-y-12">
+                            <ProjectCard
+                                title="Nova AI Stack"
+                                description="Integration layer designed to bridge multi-modal LLMs with the InMoov humanoid platform. Solves the synchronization of physical gaze tracking with synthetic voice streams."
+                                techStack={["Python", "Groq (Whisper)", "Gemini 2.0", "OpenCV", "PID Control"]}
+                                href="https://github.com/alexbuildstech/nova"
+                                status="ACTIVE BUILD"
+                                icon={<Cpu className="w-6 h-6 md:w-8 md:h-8" />}
+                                imageSrc="./nova_technical_v2.png"
+                                header={
+                                    <div className="space-y-6 md:space-y-8">
+                                        <div className="w-full bg-white border-2 md:border-4 border-foreground p-2 md:p-4 overflow-hidden">
+                                            <NovaDiagramSVG className="w-full h-auto" />
+                                        </div>
                                     </div>
+                                }
+                            />
+                            <div className="p-8 border-4 border-foreground bg-accent/5 space-y-8 font-mono uppercase text-[11px] font-bold tracking-widest leading-relaxed">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-3 text-accent"><Info size={16} /> Technical Rationale</div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Constraint</span>
+                                            <span>MG996R Servo Saturation & Jitter</span>
+                                        </div>
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Choice</span>
+                                            <span>PID Trajectory Control</span>
+                                        </div>
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Alternative Rejected</span>
+                                            <span>Ollama (High local latency)</span>
+                                        </div>
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Assumed Risk</span>
+                                            <span>Dependency on Cloud API availability</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Vision Array */}
+                        <div className="space-y-12">
+                            <ProjectCard
+                                title="Vision Array"
+                                description="Spatial memory engine exploring how persistent local state reduces redundant cloud VLM queries. Solves the 'statelessness' of generic mobile assistive apps."
+                                techStack={["Python", "SQLite3", "HRTF Audio", "Gemini Pro", "CSRT"]}
+                                href="https://github.com/alexbuildstech/assistivetech"
+                                status="R&D STAGE"
+                                icon={<Settings className="w-6 h-6 md:w-8 md:h-8" />}
+                                imageSrc="./assistive_tech_diagram.png"
+                                header={
                                     <div className="p-6 md:p-10 border-2 md:border-4 border-foreground bg-muted text-foreground">
                                         <div className="grid grid-cols-2 gap-6 md:gap-10 font-mono text-[9px] md:text-[11px] font-black uppercase">
                                             <div className="space-y-1 md:space-y-2">
-                                                <div className="opacity-30">ACTUATION</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">27 DOF Active</div>
+                                                <div className="opacity-30">DATABASE</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">SQLite Local</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
-                                                <div className="opacity-30">VISION</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">720p Real-time</div>
+                                                <div className="opacity-30">SPATIAL</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">3D HRTF Audio</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
-                                                <div className="opacity-30">COMPUTE</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Radxa / Jetson</div>
+                                                <div className="opacity-30">TRACKING</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Multi-CSRT</div>
                                             </div>
                                             <div className="space-y-1 md:space-y-2">
-                                                <div className="opacity-30">LATENCY</div>
-                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">&lt;180ms Pipeline</div>
+                                                <div className="opacity-30">RUNTIME</div>
+                                                <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Event-Driven</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            }
-                        />
-
-                        <ProjectCard
-                            title="Vision Array"
-                            description="Assistive navigation system exploring spatial memory. Features local-first object persistence (SQLite) and 3D audio heuristics (HRTF) for environment guidance."
-                            techStack={["Python", "SQLite3", "CSRT", "Spatial Audio", "Gemini Pro"]}
-                            href="https://github.com/alexbuildstech/assistivetech"
-                            status="R&D STAGE"
-                            icon={<Settings className="w-6 h-6 md:w-8 md:h-8" />}
-                            imageSrc="./assistive_tech_diagram.png"
-                            header={
-                                <div className="p-6 md:p-10 border-2 md:border-4 border-foreground bg-muted text-foreground">
-                                    <div className="grid grid-cols-2 gap-6 md:gap-10 font-mono text-[9px] md:text-[11px] font-black uppercase">
-                                        <div className="space-y-1 md:space-y-2">
-                                            <div className="opacity-30">DATABASE</div>
-                                            <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">SQLite Local</div>
+                                }
+                            />
+                            <div className="p-8 border-4 border-foreground bg-accent/5 space-y-8 font-mono uppercase text-[11px] font-bold tracking-widest leading-relaxed">
+                                <div className="space-y-4">
+                                    <div className="flex items-center gap-3 text-accent"><Info size={16} /> Technical Rationale</div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Constraint</span>
+                                            <span>Low-cost SBC Compute limits</span>
                                         </div>
-                                        <div className="space-y-1 md:space-y-2">
-                                            <div className="opacity-30">SPATIAL</div>
-                                            <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">3D HRTF Audio</div>
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Choice</span>
+                                            <span>Local SQLite Object persistence</span>
                                         </div>
-                                        <div className="space-y-1 md:space-y-2">
-                                            <div className="opacity-30">TRACKING</div>
-                                            <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Multi-CSRT</div>
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Alternative Rejected</span>
+                                            <span>Constant VLM streaming (Expensive)</span>
                                         </div>
-                                        <div className="space-y-1 md:space-y-2">
-                                            <div className="opacity-30">RUNTIME</div>
-                                            <div className="text-xs md:text-sm border-l-2 md:border-l-4 border-accent pl-2 md:pl-3 text-foreground">Event-Driven</div>
+                                        <div>
+                                            <span className="opacity-40 block mb-1">Assumed Risk</span>
+                                            <span>Tracker drift without global SLAM</span>
                                         </div>
                                     </div>
                                 </div>
-                            }
-                        />
+                            </div>
+                        </div>
                     </div>
                 </section>
 
                 {/* Section 3: Hardware Inventory */}
                 <section className="border-t-4 md:border-t-8 border-foreground pt-16 md:pt-32 mb-24 md:mb-48">
-                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-widest mb-12 md:mb-24 opacity-30 italic">
-                        Inventory // Laboratory Specs
+                    <h2 className="text-3xl md:text-4xl font-black uppercase tracking-widest mb-12 md:mb-24 opacity-30 italic font-mono">
+                        Hardware Stack // Laboratory Specs
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-foreground">
                         <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative">
@@ -167,36 +173,32 @@ const About: React.FC = () => {
                             <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Anycubic Kobra 2 Neo</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> Klipper-Tuned Firmware</li>
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Polymaker Industrial</li>
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Structural Testing</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Polymaker Industrial PETG</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Structural Load Testing</li>
                             </ul>
                         </div>
                         <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative text-foreground">
                             <Database className="text-accent w-10 h-10 md:w-12 md:h-12" />
                             <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-foreground">Compute</h3>
                             <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Arduino Mega / Uno</li>
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Radxa Boards</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Arduino Mega 2560</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Radxa Rock 5C (Primary)</li>
                                 <li className="flex items-center gap-2 md:gap-3"><span>•</span> NVIDIA Jetson Nano</li>
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Multi-Bus Control</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Serial Bus Orchestration</li>
                             </ul>
                         </div>
                         <div className="p-8 md:p-12 border-4 border-foreground space-y-6 md:space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative text-foreground">
                             <Terminal className="text-accent w-10 h-10 md:w-12 md:h-12" />
                             <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-foreground">Logic</h3>
                             <ul className="space-y-3 md:space-y-4 font-mono text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-60 text-foreground">
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Python 3.14</li>
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> OpenCV / Mediapipe</li>
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> VLM Integration</li>
-                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Kinematics Solvers</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Python 3.12+ (Async)</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> OpenCV SSD Detection</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Gemini 2.0 Flash VLM</li>
+                                <li className="flex items-center gap-2 md:gap-3"><span>•</span> Inverse Kinematics</li>
                             </ul>
                         </div>
                     </div>
                 </section>
-            </div>
-            
-            <div className="fixed bottom-20 left-10 pointer-events-none opacity-[0.02] select-none z-0">
-                <h2 className="text-[25vw] font-black leading-none">PROTOCOL</h2>
             </div>
         </div>
     );

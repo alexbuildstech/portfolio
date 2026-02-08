@@ -5,22 +5,13 @@ import { motion } from "framer-motion";
 const CombinedSection: React.FC = () => {
     const { setRobotExpression } = useRobotStore();
     
-    const cardVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: { 
-            y: 0, 
-            opacity: 1,
-            transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
-        }
-    };
-    
     return (
         <section className="relative w-full py-16 md:py-48 px-4 md:px-6 lg:px-24 border-t-8 border-foreground bg-background overflow-hidden">
             <div className="absolute inset-0 bg-grain pointer-events-none opacity-[0.03]" />
             
             <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-[1.2fr,0.8fr] gap-12 lg:gap-24 relative z-10">
                 
-                {/* Left: Capability Stack */}
+                {/* Left: Decision Log & Capabilities */}
                 <div className="space-y-12 md:space-y-24 pointer-events-auto">
                     <motion.div
                         initial={{ x: -30, opacity: 0 }}
@@ -28,18 +19,18 @@ const CombinedSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
+                        <span className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent mb-4 block">CORE CAPABILITIES</span>
                         <h2 className="text-5xl md:text-7xl xl:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-foreground">
-                            Engineering<br /><span className="text-accent">Stack</span>
+                            Technical<br /><span className="text-accent">Infrastructure</span>
                         </h2>
-                        <div className="w-32 md:w-64 h-2 md:h-4 bg-foreground" />
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                         {[
-                            { icon: Cpu, title: "Firmware", desc: "Klipper-tuned profiles, custom Arduino C++ logic, and low-latency bus protocols." },
-                            { icon: Box, title: "CAD/Prototyping", desc: "Industrial PETG/ABS manufacturing. Precision tolerance testing for mechanical systems." },
-                            { icon: Terminal, title: "Software", desc: "Async Python pipelines with OpenCV integration and real-time VLM reasoning." },
-                            { icon: Database, title: "Systems", desc: "Full-stack robotics integration. From sensor fusion to mechanical actuation." }
+                            { icon: Cpu, title: "Firmware", desc: "Low-latency bus protocols and custom C++ logic for high-torque servo synchronization." },
+                            { icon: Box, title: "Prototyping", desc: "Industrial PETG/ABS manufacturing with precision tolerance testing for mechanical load." },
+                            { icon: Terminal, title: "Logic", desc: "Asynchronous Python pipelines integrating OpenCV with real-time VLM reasoning." },
+                            { icon: Database, title: "Storage", desc: "Locally-persistent object state management using SQLite for temporal recall." }
                         ].map((item, i) => (
                             <motion.div 
                                 key={i}
@@ -48,9 +39,9 @@ const CombinedSection: React.FC = () => {
                                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                                 className="p-6 md:p-8 border-4 border-foreground hover:bg-foreground hover:text-background transition-all duration-300 group cursor-crosshair relative shadow-[6px_6px_0_0_#eeeeee] hover:shadow-none"
                             >
-                                <item.icon className="mb-6 text-accent w-8 h-8 md:w-10 md:h-10" strokeWidth={3} />
+                                <item.icon className="mb-6 text-accent w-8 h-8 md:w-10 md:h-10 transition-colors group-hover:text-accent-foreground" strokeWidth={3} />
                                 <h3 className="text-base md:text-xl font-black uppercase mb-4 tracking-tighter">{item.title}</h3>
-                                <p className="text-[10px] font-bold leading-tight opacity-50 group-hover:opacity-100 uppercase tracking-widest">
+                                <p className="text-[10px] font-mono font-bold leading-tight opacity-60 group-hover:opacity-100 uppercase tracking-widest">
                                     {item.desc}
                                 </p>
                             </motion.div>
@@ -58,50 +49,59 @@ const CombinedSection: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Right: Technical Focus & Narrative */}
-                <div className="flex flex-col justify-center space-y-16 md:space-y-24 mt-12 lg:mt-0">
+                {/* Right: Constraints & Rationale */}
+                <div className="flex flex-col justify-center space-y-12 md:space-y-16 mt-12 lg:mt-0">
                     <motion.div 
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="space-y-8 md:space-y-12"
+                        className="space-y-8 p-8 md:p-12 border-4 border-foreground bg-accent/5"
                     >
-                        <span className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">BUILDER LOG 2026</span>
-                        <p className="text-4xl md:text-6xl xl:text-7xl font-black tracking-tighter leading-[0.9] uppercase break-words">
-                            "THE NUMBERS<br />DON'T LIE." 
-                        </p>
-                        <div className="space-y-6 md:space-y-8 border-l-4 md:border-l-8 border-foreground pl-6 md:pl-12">
-                            <p className="text-lg md:text-xl font-bold tracking-tight leading-tight uppercase">
-                                Developing humanoid robotics from a bedroom lab. I'm 14, and I optimize for performance over optics.
-                            </p>
-                            <p className="text-base md:text-lg font-bold tracking-tight opacity-60 uppercase leading-snug">
-                                Every PID loop, torque curve, and millisecond of vision latency is a deliberate engineering choice. I build physical systems because they have no "undo" button.
-                            </p>
-                        </div>
+                        <h3 className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">DESIGN CONSTRAINTS</h3>
+                        <ul className="space-y-6">
+                            <li className="space-y-2">
+                                <span className="text-sm font-black uppercase tracking-tighter">01. Latency over Fidelity</span>
+                                <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
+                                    Rejected high-fidelity WaveNet models in favor of Edge-TTS to maintain a &lt;500ms TTFT loop.
+                                </p>
+                            </li>
+                            <li className="space-y-2 border-t-2 border-foreground/10 pt-6">
+                                <span className="text-sm font-black uppercase tracking-tighter">02. Local Sovereignty</span>
+                                <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
+                                    Explicitly opted for SQLite persistence to avoid redundant cloud VLM queries in static environments.
+                                </p>
+                            </li>
+                            <li className="space-y-2 border-t-2 border-foreground/10 pt-6">
+                                <span className="text-sm font-black uppercase tracking-tighter">03. Hardware Limits</span>
+                                <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
+                                    Designed for low-cost SBCs (Radxa ROCK 5C) by offloading semantic reasoning to asynchronous cloud APIs.
+                                </p>
+                            </li>
+                        </ul>
                     </motion.div>
 
-                    {/* Industrial Callout */}
+                    {/* Industrial Specs */}
                     <motion.div 
                         whileHover={{ scale: 1.01 }}
                         className="bg-foreground text-background p-8 md:p-12 flex flex-col gap-8 md:gap-12 border-l-[12px] md:border-l-[24px] border-accent transition-all duration-300 shadow-[16px_16px_0_0_#0055ff]"
                     >
                         <div className="flex justify-between items-start">
-                            <span className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none">V2.0</span>
+                            <span className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none">v2.0.26</span>
                             <Zap className="text-accent w-10 h-10 md:w-14 md:h-14" fill="currentColor" />
                         </div>
                         <div className="space-y-4 md:space-y-6 font-mono text-[10px] font-black uppercase tracking-widest opacity-60">
                             <div className="flex justify-between border-b border-white/10 pb-2">
-                                <span>LATENCY TARGET</span>
-                                <span className="text-white">&lt;200MS</span>
+                                <span>LOOP TARGET</span>
+                                <span className="text-white">&lt;200MS INTERNAL</span>
                             </div>
                             <div className="flex justify-between border-b border-white/10 pb-2">
-                                <span>PRINT MATERIALS</span>
-                                <span className="text-white">PETG / ABS / CF</span>
+                                <span>STACK RUNTIME</span>
+                                <span className="text-white">PYTHON 3.12 / C++</span>
                             </div>
                             <div className="flex justify-between border-b border-white/10 pb-2">
-                                <span>LOGIC RUNTIME</span>
-                                <span className="text-white">PYTHON 3.14 + GEMINI</span>
+                                <span>LOGIC LAYER</span>
+                                <span className="text-white">GEMINI 2.0 FLASH</span>
                             </div>
                         </div>
                     </motion.div>

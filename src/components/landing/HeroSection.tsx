@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
       
       <motion.div 
         style={{ opacity }}
-        className="max-w-7xl w-full pointer-events-auto z-10 flex flex-col items-start w-full"
+        className="max-w-7xl w-full pointer-events-auto z-10 flex flex-col items-start"
       >
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
         >
           <div className="flex items-center gap-4 mb-6 md:mb-8">
             <span className="text-[10px] md:text-xs font-mono font-black tracking-[0.4em] uppercase text-accent bg-accent/5 px-4 py-1 border border-accent/20">
-              EST. 2012 // PROTOCOL v2.0.26
+              BUILDER PROTOCOL v2.0.26
             </span>
             <div className="hidden md:block h-[1px] w-24 bg-accent/30" />
           </div>
@@ -45,10 +45,10 @@ const HeroSection: React.FC = () => {
               className="space-y-4 md:space-y-8"
             >
               <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-[0.9] text-foreground">
-                Building robots that <span className="text-accent italic">actually move.</span>
+                Experimental robotics and AI focused on <span className="text-accent italic text-stroke">real-world interaction.</span>
               </h2>
               <p className="text-base md:text-xl font-bold tracking-tight opacity-70 max-w-xl uppercase leading-snug">
-                Custom humanoid systems, low-latency firmware, and computer vision built for the physical world. 
+                I build physical systems that operate in uncontrolled environments, optimizing for low-latency firmware and edge compute over vanity demos.
               </p>
             </motion.div>
 
@@ -59,21 +59,21 @@ const HeroSection: React.FC = () => {
               className="w-full max-w-md p-6 md:p-8 border-4 border-foreground bg-foreground text-background flex flex-col gap-6 shadow-[8px_8px_0_0_#0055ff] md:shadow-[12px_12px_0_0_#0055ff]"
             >
               <div className="flex justify-between items-center border-b border-background/20 pb-4">
-                <span className="text-[9px] md:text-[10px] font-mono font-black tracking-widest opacity-60">SYSTEM STATUS</span>
-                <span className="text-[9px] md:text-[10px] font-mono font-black text-accent">ACTIVE BUILD</span>
+                <span className="text-[9px] md:text-[10px] font-mono font-black tracking-widest opacity-60 uppercase">System Status</span>
+                <span className="text-[9px] md:text-[10px] font-mono font-black text-accent uppercase">Active Build</span>
               </div>
               <div className="space-y-2 font-mono">
                 <div className="flex justify-between text-[10px] md:text-xs font-black uppercase tracking-widest">
-                  <span className="opacity-40">AGE</span>
-                  <span>14 Years</span>
+                  <span className="opacity-40">Focus</span>
+                  <span>Humanoid Autonomy</span>
                 </div>
                 <div className="flex justify-between text-[10px] md:text-xs font-black uppercase tracking-widest">
-                  <span className="opacity-40">LOC</span>
+                  <span className="opacity-40">Origin</span>
                   <span>India</span>
                 </div>
                 <div className="flex justify-between text-[10px] md:text-xs font-black uppercase tracking-widest text-accent">
-                  <span className="opacity-40">STACK</span>
-                  <span>Robotics // AI</span>
+                  <span className="opacity-40">Method</span>
+                  <span>Physical Execution</span>
                 </div>
               </div>
             </motion.div>
