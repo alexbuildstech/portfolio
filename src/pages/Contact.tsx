@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
                 <header className="mb-12 md:mb-32">
                     <span className="text-xs font-mono font-black tracking-[0.5em] text-accent mb-4 block">OPEN CHANNELS</span>
                     <h1 className="text-[12vw] md:text-[9vw] font-black uppercase tracking-tighter leading-none mb-6">
-                        Let's<br /><span className="text-accent italic text-stroke">Build</span>
+                        Let's<br /><span className="text-accent italic">Build</span>
                     </h1>
                     <p className="text-base md:text-3xl font-black tracking-tight max-w-xl opacity-90 uppercase leading-tight">
                         Open to technical discussion, mentorship, hardware collaboration, and sponsors.
