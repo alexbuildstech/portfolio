@@ -12,10 +12,10 @@ const Contact: React.FC = () => {
                 <header className="mb-12 md:mb-32">
                     <span className="text-xs font-mono font-black tracking-[0.5em] text-accent mb-4 block">OPEN CHANNELS</span>
                     <h1 className="text-[12vw] md:text-[9vw] font-black uppercase tracking-tighter leading-none mb-6">
-                        Technical<br /><span className="text-accent italic text-stroke">Collaboration</span>
+                        Let's<br /><span className="text-accent italic text-stroke">Build</span>
                     </h1>
                     <p className="text-base md:text-3xl font-black tracking-tight max-w-xl opacity-90 uppercase leading-tight">
-                        Available for research partnership, hardware-level consultation, and infrastructure sponsorship.
+                        I'm open to technical discussion, mentorship, hardware collaboration, and sponsors.
                     </p>
                 </header>
 
@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
                             <h2 className="text-xl md:text-5xl font-black uppercase tracking-tighter leading-none break-all">alexazander3@gmail.com</h2>
                         </div>
                         <p className="text-[10px] md:text-xs font-mono font-bold opacity-60 mt-2 md:mt-4 uppercase">
-                            Target Response: &lt;24H // I read every technical inquiry.
+                            I read every technical email. Usually response in &lt;24H.
                         </p>
                     </a>
 
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
                         </li>
                         <li className="flex flex-col gap-2 md:gap-3">
                             <span className="text-accent text-xs">06</span>
-                            <span>Sponsorship Support</span>
+                            <span>Project Sponsorship</span>
                         </li>
                     </ul>
                 </div>

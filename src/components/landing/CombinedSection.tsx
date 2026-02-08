@@ -19,18 +19,18 @@ const CombinedSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent mb-4 block">CORE CAPABILITIES</span>
+                        <span className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent mb-4 block">BUILDER STACK</span>
                         <h2 className="text-5xl md:text-7xl xl:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-foreground">
-                            Technical<br /><span className="text-accent">Infrastructure</span>
+                            How I<br /><span className="text-accent">Build</span>
                         </h2>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                         {[
-                            { icon: Cpu, title: "Firmware", desc: "Low-latency bus protocols and custom C++ logic for high-torque servo synchronization." },
-                            { icon: Box, title: "Prototyping", desc: "Industrial PETG/ABS manufacturing with precision tolerance testing for mechanical load." },
-                            { icon: Terminal, title: "Logic", desc: "Asynchronous Python pipelines integrating OpenCV with real-time VLM reasoning." },
-                            { icon: Database, title: "Storage", desc: "Locally-persistent object state management using SQLite for temporal recall." }
+                            { icon: Cpu, title: "Firmware", desc: "Tuning low-latency protocols so robot movement matches intent without mechanical lag." },
+                            { icon: Box, title: "Prototyping", desc: "Using industrial PETG to build frames that actually handle the torque of high-power servos." },
+                            { icon: Terminal, title: "Logic", desc: "Writing async Python loops to process vision and voice so the robot can respond in real-time." },
+                            { icon: Database, title: "Persistence", desc: "Building local memory systems so robots remember their environment instead of re-scanning." }
                         ].map((item, i) => (
                             <motion.div 
                                 key={i}
@@ -58,24 +58,24 @@ const CombinedSection: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="space-y-8 p-8 md:p-12 border-4 border-foreground bg-accent/5"
                     >
-                        <h3 className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">DESIGN CONSTRAINTS</h3>
+                        <h3 className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">TECHNICAL RATIONALE</h3>
                         <ul className="space-y-6">
                             <li className="space-y-2">
                                 <span className="text-sm font-black uppercase tracking-tighter">01. Latency over Fidelity</span>
                                 <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
-                                    Rejected high-fidelity WaveNet models in favor of Edge-TTS to maintain a &lt;500ms TTFT loop.
+                                    Rejected high-fidelity WaveNet models in favor of Edge-TTS to maintain a &lt;500ms TTFT loop—speed matters more than sounding human.
                                 </p>
                             </li>
                             <li className="space-y-2 border-t-2 border-foreground/10 pt-6">
                                 <span className="text-sm font-black uppercase tracking-tighter">02. Local Sovereignty</span>
                                 <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
-                                    Explicitly opted for SQLite persistence to avoid redundant cloud VLM queries in static environments.
+                                    Assuming local spatial memory outperforms cloud re-querying, which may fail in highly dynamic spaces but wins in repeatable indoor environments.
                                 </p>
                             </li>
                             <li className="space-y-2 border-t-2 border-foreground/10 pt-6">
-                                <span className="text-sm font-black uppercase tracking-tighter">03. Hardware Limits</span>
+                                <span className="text-sm font-black uppercase tracking-tighter">03. Physical Bottlenecks</span>
                                 <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
-                                    Designed for low-cost SBCs (Radxa ROCK 5C) by offloading semantic reasoning to asynchronous cloud APIs.
+                                    Acknowledge that software latency gains will eventually plateau once physical actuator limits dominate the response loop.
                                 </p>
                             </li>
                         </ul>
