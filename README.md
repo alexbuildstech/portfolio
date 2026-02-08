@@ -2,6 +2,16 @@
 
 A highly interactive, Cyberpunk/Matrix-themed personal portfolio website built with React, Three.js (via Spline), and Tailwind CSS. It features a responsive layout, a custom 3D robot interaction, and a detailed timeline of robotics and AI projects.
 
+## 🎨 Design Evolution
+
+This portfolio went through several design iterations before arriving at its current form:
+
+1. **V1 — Futuristic Acrylic**: Started with a sci-fi aesthetic featuring acrylic-style panels and holographic effects. It looked cool, but felt generic and overused.
+
+2. **V2 — Glassmorphism + Rounded Corners**: Pivoted to a softer approach with frosted-glass cards and rounded UI elements. This improved readability but ended up looking too "template-y" and lacked personality.
+
+3. **V3 — Refined Minimalism (Current)**: Stripped back the visual noise. The new direction uses a minimalist foundation with intentional color pops—keeping the interface clean while still feeling bold and expressive. The result: a design that breathes, stands out, and doesn't scream "AI-generated portfolio."
+
 ## 🚀 Live Demo
 https://alexbuildstech.github.io/portfolio/
 

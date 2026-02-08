@@ -28,7 +28,7 @@ describe("Navigation", () => {
         await user.click(contactLink);
 
         // Verify we are on the contact page by looking for unique content
-        const title = await screen.findByText(/CONTACT ME/i);
+        const title = await screen.findByText(/INQUIRIES/i);
         expect(title).toBeInTheDocument();
         expect(screen.getByText(/\+91 9265763478/i)).toBeInTheDocument();
     });

@@ -1,39 +1,39 @@
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 
 const Navbar: React.FC = () => {
-    const location = useLocation();
-    const { theme, setTheme } = useTheme();
-
-    const isActive = (path: string) => location.pathname === path;
+    const handleScroll = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex items-center gap-4">
-            <div className="glass-panel rounded-full px-8 py-4 flex items-center gap-8 transition-all duration-500 hover:shadow-lg h-12">
-                {['/', '/about', '/contact'].map((path) => {
-                    const label = path === '/' ? 'Home' : path.substring(1).charAt(0).toUpperCase() + path.substring(2);
-                    const active = isActive(path);
+        <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
+            <div className="flex items-center gap-8 px-8 py-3 bg-black border border-white/10 tech-box">
+                <Link to="/" className="group relative">
+                    <span className="text-white font-mono text-[10px] uppercase tracking-[0.4em] group-hover:text-primary transition-colors">
+                        Home
+                    </span>
+                    <div className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-200" />
+                </Link>
 
-                    return (
-                        <Link
-                            key={path}
-                            to={path}
-                            className={cn(
-                                "text-sm font-medium tracking-wide transition-colors duration-300 relative h-full flex items-center",
-                                active ? "text-foreground" : "text-gray-500 hover:text-foreground"
-                            )}
-                        >
-                            {label}
-                            {active && (
-                                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent rounded-full mb-[-6px]" />
-                            )}
-                        </Link>
-                    );
-                })}
+                <button onClick={() => handleScroll('about')} className="group relative">
+                    <span className="text-white font-mono text-[10px] uppercase tracking-[0.4em] group-hover:text-primary transition-colors">
+                        About
+                    </span>
+                    <div className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-200" />
+                </button>
+
+                <Link to="/contact" className="group relative">
+                    <span className="text-white font-mono text-[10px] uppercase tracking-[0.4em] group-hover:text-primary transition-colors">
+                        Contact
+                    </span>
+                    <div className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary group-hover:w-full transition-all duration-200" />
+                </Link>
             </div>
-
         </nav>
     );
 };

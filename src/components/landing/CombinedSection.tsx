@@ -1,102 +1,106 @@
-import { Cpu, Terminal, Layers } from "lucide-react";
-import { useRobotStore } from "@/hooks/useRobotStore";
-import { Skeleton } from "../ui/Skeleton";
+import React from "react";
+import { motion } from "framer-motion";
+import { StickyNote } from "../ui/StickyNote";
 
 const CombinedSection: React.FC = () => {
-    const { setRobotExpression, isRobotLoaded } = useRobotStore();
     return (
-        <section className="relative w-full min-h-screen py-32 px-6 flex flex-col items-start lg:pl-24">
+        <section
+            id="combined-content"
+            className="relative min-h-screen flex flex-col items-center justify-start bg-black py-24 px-6 sm:px-12 md:px-24 overflow-hidden"
+        >
+            {/* Massive Section Title */}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.6 }}
+                className="w-full max-w-7xl mb-32 relative"
+            >
+                <div className="flex flex-col md:flex-row items-end gap-12">
+                    <div>
+                        <span className="font-mono text-[10px] tracking-[0.5em] text-primary/60 uppercase block mb-4">
+                            // CAPABILITIES
+                        </span>
+                        <h2 className="text-[12vw] sm:text-[14vw] leading-[0.8] font-bold text-white uppercase tracking-tighter font-satoshi">
+                            <span className="whitespace-nowrap">WHAT I</span><br />
+                            <span className="text-primary">BUILD</span>
+                        </h2>
+                    </div>
 
-            {!isRobotLoaded ? (
-                <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
-                    <div className="space-y-12">
-                        <div className="space-y-4">
-                            <Skeleton className="w-12 h-12 rounded-full" />
-                            <Skeleton className="w-64 h-24" />
-                        </div>
-                        <Skeleton variant="text" lines={3} className="max-w-md" />
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                            {[...Array(6)].map((_, i) => (
-                                <Skeleton key={i} className="h-12 rounded-lg" />
-                            ))}
-                        </div>
-                    </div>
-                    <div className="space-y-12 md:pt-32">
-                        <Skeleton className="w-12 h-12 rounded-full" />
-                        <div className="space-y-8">
-                            {[...Array(3)].map((_, i) => (
-                                <div key={i} className="space-y-2">
-                                    <Skeleton className="w-48 h-8" />
-                                    <Skeleton className="w-full h-12" />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    {/* Sticky Note - Restored & Larger */}
+                    <motion.div
+                        className="mb-12 md:mb-24 z-20"
+                        initial={{ opacity: 0, rotate: -5, scale: 0.8 }}
+                        whileInView={{ opacity: 1, rotate: -5, scale: 1 }}
+                        transition={{ delay: 0.5, type: "spring" }}
+                    >
+                        <StickyNote color="cyan" rotation={-5}>
+                            Core focus: <br />
+                            <span className="font-bold">Humanoid robotics</span> and <span className="font-bold">embedded systems</span>.
+                        </StickyNote>
+                    </motion.div>
                 </div>
-            ) : (
-                <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 pointer-events-auto">
+            </motion.div>
 
-                    {/* Left Column: Philosophy */}
-                    <div className="space-y-12">
-                        <div className="space-y-4">
-                            <div className="p-3 bg-black text-white w-fit rounded-full">
-                                <Terminal size={24} />
-                            </div>
-                            <h2 className="text-3xl font-bold text-foreground tracking-tight">
-                                Building Robots<br />& Hardware
-                            </h2>
+            {/* Content Grid */}
+            <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
+
+                {/* Left: Skills */}
+                <div className="space-y-16">
+                    {/* Hardware Section */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="border-l-4 border-primary pl-8 py-4"
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <span className="text-primary font-mono text-[10px] tracking-widest uppercase">/ HARDWARE</span>
+                            <span className="text-[9px] font-mono text-emerald-500 bg-emerald-500/10 px-2 py-0.5 border border-emerald-500/20">ACTIVE</span>
                         </div>
-
-                        <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-medium">
-                            <p>
-                                Bringing digital designs to life.
-                                My work is about the process of building—from figuring out motor torque to debugging wiring and tuning sensors for the real world.
-                            </p>
+                        <h3 className="text-4xl sm:text-6xl font-bold text-white uppercase mb-6 font-sans">
+                            Physical<br />Systems
+                        </h3>
+                        <p className="text-white/60 font-mono text-sm leading-relaxed mb-6 max-w-md">
+                            Design and fabrication of functional robotics components using industrial-grade techniques.
+                        </p>
+                        <div className="grid grid-cols-2 gap-4 text-[11px] font-mono text-white/40">
+                            <div className="flex items-center gap-2"><span className="text-primary">&gt;</span> 3D Printing</div>
+                            <div className="flex items-center gap-2"><span className="text-primary">&gt;</span> CAD (Fusion 360)</div>
+                            <div className="flex items-center gap-2"><span className="text-primary">&gt;</span> Assembly</div>
+                            <div className="flex items-center gap-2"><span className="text-primary">&gt;</span> Prototyping</div>
                         </div>
+                    </motion.div>
 
-                        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
-                            {['Python', 'C++', 'React', 'Three.js', 'FreeCAD', 'OpenCV'].map((tech) => (
-                                <div
-                                    key={tech}
-                                    className="bg-white/80 border border-gray-200 px-4 py-3 rounded-lg text-sm font-semibold text-gray-600 flex items-center gap-2 shadow-sm hover:shadow-md transition-all hover:scale-105 cursor-pointer"
-                                    onMouseEnter={() => setRobotExpression('active')}
-                                    onMouseLeave={() => setRobotExpression('neutral')}
-                                >
-                                    <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                                    {tech}
-                                </div>
-                            ))}
+                    {/* Software Section */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="border-l-4 border-cyan-400 pl-8 py-4"
+                    >
+                        <div className="flex items-center gap-4 mb-4">
+                            <span className="text-cyan-400 font-mono text-[10px] tracking-widest uppercase">/ SOFTWARE</span>
+                            <span className="text-[9px] font-mono text-cyan-400 bg-cyan-400/10 px-2 py-0.5 border border-cyan-400/20">IN_BUILD</span>
                         </div>
-                    </div>
-
-                    {/* Right Column: Methodology */}
-                    <div className="space-y-12 md:pt-32">
-                        <div className="flex justify-start mb-8">
-                            <div className="p-3 bg-[#F5F5F7] text-foreground w-fit rounded-full">
-                                <Cpu size={24} />
-                            </div>
+                        <h3 className="text-4xl sm:text-6xl font-bold text-white uppercase mb-6 font-sans">
+                            Locomotion<br />Logic
+                        </h3>
+                        <p className="text-white/60 font-mono text-sm leading-relaxed mb-6 max-w-md">
+                            Real-time backend control systems that make hardware move with precision.
+                        </p>
+                        <div className="grid grid-cols-2 gap-4 text-[11px] font-mono text-white/40">
+                            <div><span className="text-cyan-400/60 text-[9px] block mb-1">LANGUAGE</span>Python / C++</div>
+                            <div><span className="text-cyan-400/60 text-[9px] block mb-1">HARDWARE</span>Arduino / RPi</div>
                         </div>
-
-                        <div className="space-y-8 text-left">
-                            <div className="space-y-2 group transition-all duration-300 hover:translate-x-2">
-                                <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">Design & Iteration</h3>
-                                <p className="text-gray-500 max-w-sm">Functional CAD modeling (FreeCAD) and rapid prototyping via FDM 3D printing.</p>
-                            </div>
-
-                            <div className="space-y-2 group transition-all duration-300 hover:translate-x-2">
-                                <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">Circuitry & Power</h3>
-                                <p className="text-gray-500 max-w-sm">Modular circuitry and power distribution for high-torque servo arrays.</p>
-                            </div>
-
-                            <div className="space-y-2 group transition-all duration-300 hover:translate-x-2">
-                                <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">Physical Interaction</h3>
-                                <p className="text-gray-500 max-w-sm">Experimental HRI (Human-Robot Interaction) using LLMs to bridge the gap between intent and mechanical action.</p>
-                            </div>
-                        </div>
-                    </div>
-
+                    </motion.div>
                 </div>
-            )}
+
+                {/* Right: Empty for now or static image? User said remove spline model. */}
+                {/* Removing the robot container entirely since it was mainly for the robot. */}
+            </div>
         </section>
     );
 };

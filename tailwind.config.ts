@@ -14,8 +14,12 @@ export default {
     },
     fontFamily: {
       sans: ["var(--font-sans)", "sans-serif"],
+      serif: ["var(--font-serif)", "serif"],
       mono: ["var(--font-mono)", "monospace"],
-      primary: ["var(--font-primary)", "sans-serif"],
+      "satoshi": ["'Satoshi'", "sans-serif"],
+      "display-neo": ["'neofolia'", "sans-serif"],
+      "display-future": ["'Osiris'", "serif"],
+      hand: ["'Nanum Pen Script'", "cursive"],
     },
     extend: {
       colors: {
@@ -62,12 +66,19 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Legacy colors removed
+        // Luxury Luxury theme colors
+        gold: "hsl(var(--gold))",
+        charcoal: "hsl(var(--charcoal))",
+        ivory: "hsl(var(--ivory))",
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "0px",
+        md: "0px",
+        sm: "0px",
+        xl: "0px",
+        "2xl": "0px",
+        "3xl": "0px",
+        full: "9999px", // Keep full for circles
       },
       keyframes: {
         "accordion-down": {
