@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import { Cpu, Box, User, Settings, Database, Terminal, Info, Clock } from "lucide-react";
+import { Cpu, User, Settings, Database, Terminal, Info, Clock } from "lucide-react";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { useRobotStore } from "@/hooks/useRobotStore";
 import { NovaDiagramSVG, AssistiveTechDiagramSVG } from "@/components/ui/TechnicalDiagrams";
@@ -26,23 +26,23 @@ const About: React.FC = () => {
                             Physical<br /><span className="text-accent text-stroke">Execution</span>
                         </h1>
                         <div className="max-w-xl text-lg md:text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">
-                            I build robots and looking for collaborators and mentors to push the boundaries of humanoid autonomy.
+                            I build robots and look for collaborators to push the limits of humanoid autonomy.
                         </div>
                     </div>
                     
                     <div className="max-w-3xl space-y-8 md:space-y-12 p-8 md:p-16 border-4 md:border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto font-mono uppercase tracking-tight">
-                        <h2 className="text-2xl md:text-4xl font-black flex items-center gap-4 md:gap-6 lowercase">
-                            <Clock className="text-accent w-8 h-8 md:w-12 md:h-12" /> the building arc
+                        <h2 className="text-2xl md:text-4xl font-black flex items-center gap-4 md:gap-6">
+                            <Clock className="text-accent w-8 h-8 md:w-12 md:h-12" /> The Progression
                         </h2>
                         <div className="space-y-6 md:space-y-8 text-sm md:text-base font-bold leading-relaxed opacity-80">
                             <p>
-                                I started building when I was very young. My first "projects" were simple mechanical toys, but I quickly realized that physical systems are the most interesting because code has actual consequences when it moves.
+                                I build physical systems because code is only interesting when it has consequences in the real world.
                             </p>
                             <p>
-                                Over the last decade, I've moved from simple mechanical builds to humanoid robotics, focusing on how low-latency firmware can make machines feel responsive and alive.
+                                My work has moved from mechanical prototypes to humanoid robotics, focusing on low-latency firmware and computer vision for real-time interaction.
                             </p>
                             <p>
-                                Currently, I'm exploring how to bridge the gap between cloud-based AI reasoning and local, high-speed motor control.
+                                Currently developing humanoid actuation systems and spatial memory engines for indoor environmental awareness.
                             </p>
                         </div>
                     </div>
