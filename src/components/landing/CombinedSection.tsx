@@ -18,7 +18,7 @@ const CombinedSection: React.FC = () => {
         <section className="relative w-full py-16 md:py-48 px-4 md:px-6 lg:px-24 border-t-8 border-foreground bg-background overflow-hidden">
             <div className="absolute inset-0 bg-grain pointer-events-none opacity-[0.03]" />
             
-            <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 gap-16 lg:gap-48 relative z-10">
+            <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-[1.2fr,0.8fr] gap-12 lg:gap-24 relative z-10">
                 
                 {/* Left: Capability Stack */}
                 <div className="space-y-12 md:space-y-24 pointer-events-auto">
@@ -34,7 +34,7 @@ const CombinedSection: React.FC = () => {
                         <div className="w-32 md:w-64 h-2 md:h-4 bg-foreground" />
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                         {[
                             { icon: Cpu, title: "Firmware", desc: "Klipper-tuned profiles, custom Arduino C++ logic, and low-latency bus protocols." },
                             { icon: Box, title: "CAD/Prototyping", desc: "Industrial PETG/ABS manufacturing. Precision tolerance testing for mechanical systems." },
@@ -46,7 +46,7 @@ const CombinedSection: React.FC = () => {
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                                className="p-6 md:p-10 border-4 border-foreground hover:bg-foreground hover:text-background transition-all duration-300 group cursor-crosshair relative shadow-[8px_8px_0_0_#eeeeee] hover:shadow-none"
+                                className="p-6 md:p-8 border-4 border-foreground hover:bg-foreground hover:text-background transition-all duration-300 group cursor-crosshair relative shadow-[6px_6px_0_0_#eeeeee] hover:shadow-none"
                             >
                                 <item.icon className="mb-6 text-accent w-8 h-8 md:w-10 md:h-10" strokeWidth={3} />
                                 <h3 className="text-base md:text-xl font-black uppercase mb-4 tracking-tighter">{item.title}</h3>
