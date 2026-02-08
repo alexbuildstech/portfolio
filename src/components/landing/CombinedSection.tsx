@@ -11,7 +11,7 @@ const CombinedSection: React.FC = () => {
             
             <div className="max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-[1.2fr,0.8fr] gap-12 lg:gap-24 relative z-10">
                 
-                {/* Left: Decision Log & Capabilities */}
+                {/* Left: Capability Stack */}
                 <div className="space-y-12 md:space-y-24 pointer-events-auto">
                     <motion.div
                         initial={{ x: -30, opacity: 0 }}
@@ -19,18 +19,18 @@ const CombinedSection: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <span className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent mb-4 block">BUILDER STACK</span>
                         <h2 className="text-5xl md:text-7xl xl:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-foreground">
-                            How I<br /><span className="text-accent">Build</span>
+                            Engineering<br /><span className="text-accent">Stack</span>
                         </h2>
+                        <div className="w-32 md:w-64 h-2 md:h-4 bg-foreground" />
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                         {[
-                            { icon: Cpu, title: "Firmware", desc: "Tuning low-latency protocols so robot movement matches intent without mechanical lag." },
-                            { icon: Box, title: "Prototyping", desc: "Using industrial PETG to build frames that actually handle the torque of high-power servos." },
-                            { icon: Terminal, title: "Logic", desc: "Writing async Python loops to process vision and voice so the robot can respond in real-time." },
-                            { icon: Database, title: "Persistence", desc: "Building local memory systems so robots remember their environment instead of re-scanning." }
+                            { icon: Cpu, title: "Firmware", desc: "Low-latency protocols so robot movement matches intent without mechanical lag." },
+                            { icon: Box, title: "Prototyping", desc: "Industrial PETG frames that handle the high torque of powerful servos." },
+                            { icon: Terminal, title: "Logic", desc: "Async Python loops to process vision and voice so the robot can respond in real-time." },
+                            { icon: Database, title: "Persistence", desc: "Local memory systems so robots remember their environment instead of re-scanning." }
                         ].map((item, i) => (
                             <motion.div 
                                 key={i}
@@ -49,7 +49,7 @@ const CombinedSection: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Right: Constraints & Rationale */}
+                {/* Right: Technical Notes */}
                 <div className="flex flex-col justify-center space-y-12 md:space-y-16 mt-12 lg:mt-0">
                     <motion.div 
                         initial={{ opacity: 0, y: 30 }}
@@ -58,30 +58,30 @@ const CombinedSection: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="space-y-8 p-8 md:p-12 border-4 border-foreground bg-accent/5"
                     >
-                        <h3 className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">TECHNICAL RATIONALE</h3>
+                        <h3 className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">HARDWARE NOTES</h3>
                         <ul className="space-y-6">
                             <li className="space-y-2">
-                                <span className="text-sm font-black uppercase tracking-tighter">01. Latency over Fidelity</span>
+                                <span className="text-sm font-black uppercase tracking-tighter">01. Speed &gt; Quality</span>
                                 <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
-                                    Rejected high-fidelity WaveNet models in favor of Edge-TTS to maintain a &lt;500ms TTFT loop—speed matters more than sounding human.
+                                    Used Edge-TTS instead of WaveNet to keep the response loop under 500ms. Speed is more important than sounding human.
                                 </p>
                             </li>
                             <li className="space-y-2 border-t-2 border-foreground/10 pt-6">
-                                <span className="text-sm font-black uppercase tracking-tighter">02. Local Sovereignty</span>
+                                <span className="text-sm font-black uppercase tracking-tighter">02. State Management</span>
                                 <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
-                                    Assuming local spatial memory outperforms cloud re-querying, which may fail in highly dynamic spaces but wins in repeatable indoor environments.
+                                    Using local SQLite to cache object locations. Cloud re-querying is too slow for repeatable indoor tasks.
                                 </p>
                             </li>
                             <li className="space-y-2 border-t-2 border-foreground/10 pt-6">
-                                <span className="text-sm font-black uppercase tracking-tighter">03. Physical Bottlenecks</span>
+                                <span className="text-sm font-black uppercase tracking-tighter">03. Physical Limits</span>
                                 <p className="text-[11px] font-mono font-bold opacity-60 uppercase leading-relaxed">
-                                    Acknowledge that software latency gains will eventually plateau once physical actuator limits dominate the response loop.
+                                    Software speed is limited by physical servo response. Software gains only go as far as the hardware allows.
                                 </p>
                             </li>
                         </ul>
                     </motion.div>
 
-                    {/* Industrial Specs */}
+                    {/* Build Specs */}
                     <motion.div 
                         whileHover={{ scale: 1.01 }}
                         className="bg-foreground text-background p-8 md:p-12 flex flex-col gap-8 md:gap-12 border-l-[12px] md:border-l-[24px] border-accent transition-all duration-300 shadow-[16px_16px_0_0_#0055ff]"

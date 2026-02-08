@@ -45,10 +45,10 @@ const HeroSection: React.FC = () => {
               className="space-y-4 md:space-y-8"
             >
               <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-[0.9] text-foreground">
-                I build experimental robotics and AI focused on <span className="text-accent italic text-stroke">real-world interaction.</span>
+                I build robots that <span className="text-accent italic text-stroke">actually move.</span>
               </h2>
               <p className="text-base md:text-xl font-bold tracking-tight opacity-70 max-w-xl uppercase leading-snug">
-                I build physical systems that handle uncontrolled variables—like lighting variance and network jitter—optimizing for low-latency firmware over vanity demos.
+                Custom humanoid systems, low-latency firmware, and computer vision built for physical execution. No vanity demos.
               </p>
             </motion.div>
 
@@ -64,12 +64,12 @@ const HeroSection: React.FC = () => {
                   <span>Humanoid Autonomy</span>
                 </div>
                 <div className="flex justify-between text-[10px] md:text-xs font-black uppercase tracking-widest">
-                  <span className="opacity-40">Age</span>
-                  <span>14 Years</span>
-                </div>
-                <div className="flex justify-between text-[10px] md:text-xs font-black uppercase tracking-widest text-accent">
                   <span className="opacity-40">Method</span>
                   <span>Physical Execution</span>
+                </div>
+                <div className="flex justify-between text-[10px] md:text-xs font-black uppercase tracking-widest text-accent">
+                  <span className="opacity-40">Status</span>
+                  <span>Building</span>
                 </div>
               </div>
             </motion.div>

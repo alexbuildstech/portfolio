@@ -19,24 +19,24 @@ const About: React.FC = () => {
             <Navbar />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                {/* Section 1: The Arc */}
+                {/* Section 1: The Persona */}
                 <header className="mb-24 md:mb-48 flex flex-col gap-8 md:gap-12">
                     <div>
                         <h1 className="text-[14vw] md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] mb-6 md:mb-8">
-                            Builder<br /><span className="text-accent text-stroke">Protocol</span>
+                            Physical<br /><span className="text-accent text-stroke">Execution</span>
                         </h1>
                         <div className="max-w-xl text-lg md:text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">
-                            I'm 14. I've been building things for 12 years. I prioritize engineering depth over demos that just look good.
+                            I build robots and looking for collaborators and mentors to push the boundaries of humanoid autonomy.
                         </div>
                     </div>
                     
-                    <div className="max-w-3xl space-y-8 md:space-y-12 p-8 md:p-16 border-4 md:border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto">
+                    <div className="max-w-3xl space-y-8 md:space-y-12 p-8 md:p-16 border-4 md:border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto font-mono uppercase tracking-tight">
                         <h2 className="text-2xl md:text-4xl font-black flex items-center gap-4 md:gap-6 lowercase">
-                            <Clock className="text-accent w-8 h-8 md:w-12 md:h-12" /> the learning arc
+                            <Clock className="text-accent w-8 h-8 md:w-12 md:h-12" /> the building arc
                         </h2>
                         <div className="space-y-6 md:space-y-8 text-sm md:text-base font-bold leading-relaxed opacity-80">
                             <p>
-                                I started building when I was 2. My first "projects" were mechanical toys, but I quickly realized that physical systems are the most interesting because code has actual consequences when it moves.
+                                I started building when I was very young. My first "projects" were simple mechanical toys, but I quickly realized that physical systems are the most interesting because code has actual consequences when it moves.
                             </p>
                             <p>
                                 Over the last decade, I've moved from simple mechanical builds to humanoid robotics, focusing on how low-latency firmware can make machines feel responsive and alive.
@@ -76,23 +76,23 @@ const About: React.FC = () => {
                             />
                             <div className="p-8 border-4 border-foreground bg-accent/5 space-y-8 font-mono uppercase text-[11px] font-bold tracking-widest leading-relaxed">
                                 <div className="space-y-4">
-                                    <div className="flex items-center gap-3 text-accent"><Info size={16} /> Rationale & Risk</div>
+                                    <div className="flex items-center gap-3 text-accent"><Info size={16} /> Technical Notes</div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <span className="opacity-40 block mb-1">Tradeoff</span>
-                                            <span>PID Gaze Control vs Raw Motion</span>
+                                            <span className="opacity-40 block mb-1">Hardware Limit</span>
+                                            <span>MG996R Servo Saturation & Jitter</span>
                                         </div>
                                         <div>
                                             <span className="opacity-40 block mb-1">Decision</span>
-                                            <span>Accepted cloud dependency for &lt;500ms TTFT</span>
+                                            <span>PID Trajectory Control for Smooth Motion</span>
                                         </div>
                                         <div>
-                                            <span className="opacity-40 block mb-1">Assumption</span>
-                                            <span>Assuming cloud APIs stay fast enough for real-time</span>
+                                            <span className="opacity-40 block mb-1">Rejected</span>
+                                            <span>Ollama (High local latency on SBC)</span>
                                         </div>
                                         <div>
-                                            <span className="opacity-40 block mb-1">Failure Mode</span>
-                                            <span>SSD detector struggles in low-light environments</span>
+                                            <span className="opacity-40 block mb-1">Note</span>
+                                            <span>Requires fast cloud API for real-time response</span>
                                         </div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ const About: React.FC = () => {
                             />
                             <div className="p-8 border-4 border-foreground bg-accent/5 space-y-8 font-mono uppercase text-[11px] font-bold tracking-widest leading-relaxed">
                                 <div className="space-y-4">
-                                    <div className="flex items-center gap-3 text-accent"><Info size={16} /> Rationale & Risk</div>
+                                    <div className="flex items-center gap-3 text-accent"><Info size={16} /> Technical Notes</div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <span className="opacity-40 block mb-1">Decision</span>
@@ -145,12 +145,12 @@ const About: React.FC = () => {
                                             <span>Continuous VLM streaming (Too much data)</span>
                                         </div>
                                         <div>
-                                            <span className="opacity-40 block mb-1">Assumed Risk</span>
-                                            <span>Tracker drift will happen without global SLAM</span>
+                                            <span className="opacity-40 block mb-1">Limit</span>
+                                            <span>Tracker drift happens without global SLAM</span>
                                         </div>
                                         <div>
-                                            <span className="opacity-40 block mb-1">Epistemic Risk</span>
-                                            <span>May fail in highly dynamic indoor spaces</span>
+                                            <span className="opacity-40 block mb-1">Note</span>
+                                            <span>Works best in repeatable indoor environments</span>
                                         </div>
                                     </div>
                                 </div>

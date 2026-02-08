@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
                         Let's<br /><span className="text-accent italic text-stroke">Build</span>
                     </h1>
                     <p className="text-base md:text-3xl font-black tracking-tight max-w-xl opacity-90 uppercase leading-tight">
-                        I'm open to technical discussion, mentorship, hardware collaboration, and sponsors.
+                        Open to technical discussion, mentorship, hardware collaboration, and sponsors.
                     </p>
                 </header>
 
