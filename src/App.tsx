@@ -13,13 +13,11 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Global mouse tracker component
 const GlobalMouseTracker = () => {
   const { setMousePosition } = useRobotStore();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // Normalize to -1 to 1 for 3D contexts
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = -(e.clientY / window.innerHeight) * 2 + 1;
       setMousePosition(x, y);
@@ -32,15 +30,11 @@ const GlobalMouseTracker = () => {
   return null;
 };
 
-// Layout Wrapper with GSAP Hooks
 const AnimatedRoutes = () => {
   const location = useLocation();
   const { setCameraState } = useRobotStore();
 
   useEffect(() => {
-    console.log("Navigating to:", location.pathname);
-
-    // Map Routes to Camera States
     switch (location.pathname) {
       case '/about':
         setCameraState('about');
@@ -66,31 +60,29 @@ const AnimatedRoutes = () => {
   );
 };
 
-import { ThemeProvider } from "./components/theme/ThemeProvider";
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider forcedTheme="dark" attribute="class">
-      <TooltipProvider>
-        <GlobalMouseTracker />
+    <TooltipProvider>
+      <GlobalMouseTracker />
 
-        {/* BACKGROUND LAYER: Robot Only (Clean, No Grid) */}
-        <div className="fixed inset-0 z-0 pointer-events-none bg-background transition-colors duration-500 flex justify-end">
-          <Robot3D className="h-full w-1/2" />
+      {/* BACKGROUND LAYER: Robot Only */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-background flex justify-end overflow-hidden">
+        <div className="h-full w-full lg:w-3/4 absolute right-0 opacity-40 lg:opacity-100">
+          <Robot3D className="h-full w-full" />
         </div>
+      </div>
 
-        {/* FOREGROUND LAYER: UI Content */}
-        <div id="app-wrapper" className="pointer-events-none">
-          <Toaster />
-          <HashRouter>
-            <div className="pointer-events-auto min-h-screen">
-              <AnimatedRoutes />
-            </div>
-          </HashRouter>
-        </div>
+      {/* FOREGROUND LAYER: UI Content */}
+      <div id="app-wrapper" className="pointer-events-none">
+        <Toaster />
+        <HashRouter>
+          <div className="pointer-events-auto min-h-screen">
+            <AnimatedRoutes />
+          </div>
+        </HashRouter>
+      </div>
 
-      </TooltipProvider>
-    </ThemeProvider>
+    </TooltipProvider>
   </QueryClientProvider>
 );
 
