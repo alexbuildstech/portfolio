@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Github, Mail, ArrowRight } from "lucide-react";
 import Navbar from "../components/layout/Navbar";
 import { motion } from "framer-motion";
@@ -11,10 +11,10 @@ const Contact: React.FC = () => {
             <main className="max-w-7xl mx-auto flex flex-col items-start py-24">
                 <header className="mb-24">
                     <h1 className="text-[12vw] md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] mb-8">
-                        Connect // <br /><span className="opacity-40 text-stroke">Direct</span>
+                        Connect // <br /><span className="opacity-40">Direct</span>
                     </h1>
                     <p className="text-xl md:text-2xl font-bold tracking-tight max-w-xl opacity-70">
-                        Available for technical discussion, robotics collaboration, or questions about my open-source projects.
+                        Available for technical discussion, robotics collaboration, or questions about open-source projects.
                     </p>
                 </header>
 
