@@ -45,10 +45,10 @@ const HeroSection: React.FC = () => {
               className="space-y-4 md:space-y-8"
             >
               <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-[0.9] text-foreground">
-                Building humanoid robots and <span className="text-accent">autonomous systems.</span>
+                Building humanoid robotics and exploring <span className="text-accent">physical AI.</span>
               </h2>
               <p className="text-base md:text-xl font-bold tracking-tight opacity-70 max-w-xl uppercase leading-snug">
-                Researching motor control, vision pipelines, and physical AI. No fluff, just technical progression.
+                Working on motor control, vision pipelines, and autonomous interaction.
               </p>
             </motion.div>
 

@@ -26,7 +26,7 @@ const About: React.FC = () => {
                             Building<br /><span className="text-accent">Robots</span>
                         </h1>
                         <div className="max-w-xl text-lg md:text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">
-                            I build humanoid robots and figure out physical autonomy systems.
+                            I build robots and work on humanoid autonomy.
                         </div>
                     </div>
                     
