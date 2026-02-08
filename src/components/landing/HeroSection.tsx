@@ -45,10 +45,10 @@ const HeroSection: React.FC = () => {
               className="space-y-4 md:space-y-8"
             >
               <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-[0.9] text-foreground">
-                I build robots that <span className="text-accent italic">actually move.</span>
+                Developing experimental <span className="text-accent">humanoid robotics</span> and AI systems.
               </h2>
               <p className="text-base md:text-xl font-bold tracking-tight opacity-70 max-w-xl uppercase leading-snug">
-                Custom humanoid systems, low-latency firmware, and computer vision built for physical execution. No vanity demos.
+                Focused on low-latency firmware, computer vision, and physical autonomy. Built for real-world interaction.
               </p>
             </motion.div>
 
