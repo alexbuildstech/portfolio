@@ -47,7 +47,6 @@ const App = () => {
   const { setIsRobotLoaded } = useRobotStore();
 
   useEffect(() => {
-    // Simulate system ready state after brief initialization
     const timer = setTimeout(() => {
       setIsRobotLoaded(true);
     }, 800);
@@ -64,7 +63,7 @@ const App = () => {
         <div id="app-wrapper" className="pointer-events-none relative z-10">
           <Toaster />
           <HashRouter>
-            <div className="pointer-events-auto min-h-screen">
+            <div className="pointer-events-auto min-h-screen relative">
               <AnimatedRoutes />
             </div>
           </HashRouter>
