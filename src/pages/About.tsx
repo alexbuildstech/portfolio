@@ -22,7 +22,7 @@ const About: React.FC = () => {
                 {/* Section 1: The Persona */}
                 <header className="mb-24 md:mb-48 flex flex-col gap-8 md:gap-12">
                     <div>
-                        <h1 className="text-[14vw] md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] mb-6 md:mb-8">
+                        <h1 className="text-[14vw] md:text-[8vw] font-black uppercase tracking-tighter leading-none mb-6 md:mb-8">
                             Physical<br /><span className="text-accent">Execution</span>
                         </h1>
                         <div className="max-w-xl text-lg md:text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">

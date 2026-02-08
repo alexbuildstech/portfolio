@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
             <main className="max-w-7xl mx-auto flex flex-col items-start py-12 md:py-24 relative z-10">
                 <header className="mb-12 md:mb-32">
                     <span className="text-xs font-mono font-black tracking-[0.5em] text-accent mb-4 block">OPEN CHANNELS</span>
-                    <h1 className="text-[12vw] md:text-[9vw] font-black uppercase tracking-tighter leading-none mb-6">
+                    <h1 className="text-[12vw] md:text-[9vw] font-black uppercase tracking-tighter leading-tight mb-6">
                         Let's<br /><span className="text-accent italic">Build</span>
                     </h1>
                     <p className="text-base md:text-3xl font-black tracking-tight max-w-xl opacity-90 uppercase leading-tight">
