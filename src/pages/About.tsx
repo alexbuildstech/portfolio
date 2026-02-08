@@ -19,22 +19,22 @@ const About: React.FC = () => {
             <Navbar />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                {/* Section 1: The Persona */}
-                <header className="mb-48 grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+                {/* Section 1: The Persona - Fixed Layout to prevent overlap */}
+                <header className="mb-48 flex flex-col gap-12">
                     <div>
-                        <h1 className="text-[12vw] md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] mb-12">
+                        <h1 className="text-[12vw] md:text-[8vw] font-black uppercase tracking-tighter leading-[0.8] mb-8">
                             Physical<br /><span className="text-accent">Execution</span>
                         </h1>
-                        <div className="max-w-md text-2xl font-black tracking-tight opacity-90 leading-none uppercase">
+                        <div className="max-w-md text-2xl font-black tracking-tight opacity-90 leading-none uppercase text-accent">
                             Alex Paul. 14. India. Engineering depth over surface-level motivation.
                         </div>
                     </div>
                     
-                    <div className="space-y-12 p-16 border-[12px] border-foreground bg-card shadow-[32px_32px_0_0_#0055ff]">
-                        <h2 className="text-4xl font-black uppercase tracking-tight flex items-center gap-6">
+                    <div className="max-w-3xl space-y-12 p-12 md:p-16 border-[12px] border-foreground bg-card shadow-[16px_16px_0_0_#0055ff] md:shadow-[32px_32px_0_0_#0055ff] lg:ml-auto">
+                        <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight flex items-center gap-6">
                             <User className="text-accent" size={48} /> The Story
                         </h2>
-                        <div className="space-y-8 text-base font-bold leading-relaxed uppercase tracking-tight opacity-80">
+                        <div className="space-y-8 text-sm md:text-base font-bold leading-relaxed uppercase tracking-tight opacity-80">
                             <p>
                                 I build physical intelligence because code is only interesting when it has consequences in the real world.
                             </p>
@@ -65,11 +65,9 @@ const About: React.FC = () => {
                             href="https://github.com/alexbuildstech/nova"
                             status="ACTIVE BUILD"
                             icon={<Cpu size={32} />}
+                            imageSrc="/nova_technical_v2.png"
                             header={
                                 <div className="space-y-8">
-                                    <div className="w-full bg-white border-4 border-foreground p-4">
-                                        <NovaDiagramSVG className="w-full h-auto" />
-                                    </div>
                                     <div className="p-10 border-4 border-foreground bg-muted">
                                         <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
                                             <div className="space-y-2">
@@ -101,29 +99,25 @@ const About: React.FC = () => {
                             href="https://github.com/alexbuildstech/assistivetech"
                             status="R&D STAGE"
                             icon={<Settings size={32} />}
+                            imageSrc="/assistive_tech_diagram.png"
                             header={
-                                <div className="space-y-8">
-                                    <div className="w-full bg-white border-4 border-foreground p-4">
-                                        <AssistiveTechDiagramSVG className="w-full h-auto" />
-                                    </div>
-                                    <div className="p-10 border-4 border-foreground bg-muted">
-                                        <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
-                                            <div className="space-y-2">
-                                                <div className="opacity-30">DATABASE</div>
-                                                <div className="text-sm border-l-4 border-accent pl-3">SQLite Local</div>
-                                            </div>
-                                            <div className="space-y-2">
-                                                <div className="opacity-30">SPATIAL</div>
-                                                <div className="text-sm border-l-4 border-accent pl-3">3D HRTF Audio</div>
-                                            </div>
-                                            <div className="space-y-2">
-                                                <div className="opacity-30">TRACKING</div>
-                                                <div className="text-sm border-l-4 border-accent pl-3">Multi-CSRT</div>
-                                            </div>
-                                            <div className="space-y-2">
-                                                <div className="opacity-30">RUNTIME</div>
-                                                <div className="text-sm border-l-4 border-accent pl-3">Event-Driven</div>
-                                            </div>
+                                <div className="p-10 border-4 border-foreground bg-muted">
+                                    <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">DATABASE</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3">SQLite Local</div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">SPATIAL</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3">3D HRTF Audio</div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">TRACKING</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3">Multi-CSRT</div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="opacity-30">RUNTIME</div>
+                                            <div className="text-sm border-l-4 border-accent pl-3">Event-Driven</div>
                                         </div>
                                     </div>
                                 </div>
