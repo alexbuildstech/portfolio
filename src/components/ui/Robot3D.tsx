@@ -24,9 +24,9 @@ const Robot3D: React.FC<Robot3DProps> = ({
     const SMOOTHING = 0.08;
 
     const CAMERA_POSITIONS = {
-        home: { x: 500, y: 0, z: 1000, rx: 0, ry: 0, rz: 0 },
-        about: { x: -200, y: 200, z: 600, rx: -0.2, ry: 0.5, rz: 0 },
-        contact: { x: 800, y: -400, z: 800, rx: 0.3, ry: -0.3, rz: 0 }
+        home: { x: 400, y: 0, z: 1100, rx: 0, ry: 0.1, rz: 0 },
+        about: { x: -300, y: 200, z: 700, rx: -0.2, ry: 0.6, rz: 0 },
+        contact: { x: 900, y: -400, z: 900, rx: 0.3, ry: -0.4, rz: 0 }
     };
 
     const handleLoad = (spline: any) => {
@@ -50,16 +50,16 @@ const Robot3D: React.FC<Robot3DProps> = ({
             x: target.x,
             y: target.y,
             z: target.z,
-            duration: 2.5,
-            ease: "power4.inOut"
+            duration: 3,
+            ease: "expo.inOut"
         });
 
         gsap.to(cameraRef.current.rotation, {
             x: target.rx,
             y: target.ry,
             z: target.rz,
-            duration: 2.5,
-            ease: "power4.inOut"
+            duration: 3,
+            ease: "expo.inOut"
         });
     }, [cameraState, isRobotLoaded]);
 
@@ -71,11 +71,11 @@ const Robot3D: React.FC<Robot3DProps> = ({
             time += 0.02;
             if (headRef.current) {
                 const breathingOffset = Math.sin(time * 0.5) * 0.015;
-                let targetX = (mouseX - 0.5) * 0.6;
+                let targetX = (mouseX - 0.5) * 0.7;
                 let targetY = activeInput ? 0.3 : (-mouseY * 0.3) + 0.1;
 
-                targetX = Math.max(-0.3, Math.min(0.3, targetX));
-                targetY = Math.max(-0.2, Math.min(0.2, targetY));
+                targetX = Math.max(-0.4, Math.min(0.4, targetX));
+                targetY = Math.max(-0.25, Math.min(0.25, targetY));
 
                 const currentX = headRef.current.rotation.x || 0;
                 const currentY = headRef.current.rotation.y || 0;
@@ -107,10 +107,11 @@ const Robot3D: React.FC<Robot3DProps> = ({
     if (isMobile) return null;
 
     return (
-        <div className={cn("relative w-full h-full flex items-center justify-center pointer-events-none grayscale contrast-125", className)}>
+        <div className={cn("relative w-full h-full flex items-center justify-center pointer-events-none grayscale contrast-125 saturate-0", className)}>
+            <div className="absolute inset-0 bg-background/10 z-10 pointer-events-none" />
             <Spline
                 scene={scene}
-                className={cn("w-full h-full transition-opacity duration-1000", isRobotLoaded ? "opacity-100" : "opacity-0")}
+                className={cn("w-full h-full transition-opacity duration-2000", isRobotLoaded ? "opacity-30 lg:opacity-60" : "opacity-0")}
                 onLoad={handleLoad}
             />
         </div>
