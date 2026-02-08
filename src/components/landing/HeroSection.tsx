@@ -28,21 +28,21 @@ const HeroSection: React.FC = () => {
             <div className="hidden md:block h-[1px] w-24 bg-accent/30" />
           </div>
 
-          <div className="relative mb-12 md:mb-16 w-full">
+          <div className="relative mb-8 md:mb-16 w-full">
             <motion.h1 
               style={{ y: y1 }}
-              className="text-[14vw] md:text-[11vw] font-black uppercase tracking-tighter leading-[0.75] text-foreground break-words relative z-20"
+              className="text-[16vw] md:text-[11vw] font-black uppercase tracking-tighter leading-[0.75] text-foreground break-words relative z-20"
             >
               ALEX PAUL
             </motion.h1>
           </div>
 
-          <div className="flex flex-col lg:grid lg:grid-cols-[1fr,400px] gap-12 w-full items-start lg:items-end relative z-30">
+          <div className="flex flex-col lg:grid lg:grid-cols-[1fr,400px] gap-8 md:gap-12 w-full items-start lg:items-end relative z-30">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="space-y-6 md:space-y-8"
+              className="space-y-4 md:space-y-8"
             >
               <h2 className="text-3xl md:text-5xl xl:text-6xl font-black uppercase tracking-tighter leading-[0.9] text-foreground">
                 Building robots that <span className="text-accent italic">actually move.</span>
@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="w-full max-w-md p-6 md:p-8 border-4 border-foreground bg-foreground text-background flex flex-col gap-6 shadow-[12px_12px_0_0_#0055ff]"
+              className="w-full max-w-md p-6 md:p-8 border-4 border-foreground bg-foreground text-background flex flex-col gap-6 shadow-[8px_8px_0_0_#0055ff] md:shadow-[12px_12px_0_0_#0055ff]"
             >
               <div className="flex justify-between items-center border-b border-background/20 pb-4">
                 <span className="text-[9px] md:text-[10px] font-mono font-black tracking-widest opacity-60">SYSTEM STATUS</span>
