@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
             >
               <div className="flex justify-between items-center border-b border-background/20 pb-4">
                 <span className="text-[10px] font-mono font-black tracking-widest opacity-60">SYSTEM STATUS</span>
-                <span className="text-[10px] font-mono font-black text-accent">ACTIVE_BUILD</span>
+                <span className="text-[10px] font-mono font-black text-accent">ACTIVE BUILD</span>
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between text-xs font-black uppercase tracking-widest">

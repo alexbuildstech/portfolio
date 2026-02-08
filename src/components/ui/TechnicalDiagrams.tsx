@@ -30,15 +30,15 @@ export const NovaDiagramSVG: React.FC<{ className?: string }> = ({ className }) 
         <rect x="50" y="150" width="200" height="120" rx="12" fill="white" stroke="#64748b" strokeWidth="2" />
         <rect x="50" y="150" width="200" height="30" rx="12" fill="#f1f5f9" />
         <text x="150" y="170" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#1e293b" className="font-mono">INTERACTION LAYER</text>
-        <text x="150" y="195" textAnchor="middle" fontSize="10" fill="#64748b">(Groq LLM)</text>
-        <text x="150" y="210" textAnchor="middle" fontSize="10" fill="#64748b">(GPT-OSS 20B)</text>
+        <text x="150" y="195" textAnchor="middle" fontSize="10" fill="#64748b">Groq LLM</text>
+        <text x="150" y="210" textAnchor="middle" fontSize="10" fill="#64748b">GPT-J ODS 20B</text>
 
         {/* Main Interaction Hub */}
         <rect x="350" y="150" width="250" height="180" rx="12" fill="white" stroke="#64748b" strokeWidth="2" />
         <rect x="350" y="150" width="250" height="30" rx="12" fill="#f1f5f9" />
         <text x="475" y="170" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#1e293b" className="font-mono">INTERACTION LAYER</text>
-        <text x="475" y="190" textAnchor="middle" fontSize="10" fill="#64748b">(Groq LLM)</text>
-        <text x="475" y="220" textAnchor="middle" fontSize="10" fill="#1e293b">• (GPT-OSS 20B)</text>
+        <text x="475" y="190" textAnchor="middle" fontSize="10" fill="#64748b">Groq LLM</text>
+        <text x="475" y="220" textAnchor="middle" fontSize="10" fill="#1e293b">• GPT-J ODS 20B</text>
         <text x="475" y="240" textAnchor="middle" fontSize="10" fill="#1e293b">• Handles regular queries</text>
         <text x="475" y="260" textAnchor="middle" fontSize="10" fill="#1e293b">and generates responses</text>
 

@@ -3,6 +3,7 @@ import Navbar from "../components/layout/Navbar";
 import { Cpu, Box, User, Settings, Database, Terminal } from "lucide-react";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { useRobotStore } from "@/hooks/useRobotStore";
+import { NovaDiagramSVG, AssistiveTechDiagramSVG } from "@/components/ui/TechnicalDiagrams";
 
 const About: React.FC = () => {
     const { setIsRobotLoaded } = useRobotStore();
@@ -53,7 +54,7 @@ const About: React.FC = () => {
                         <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
                             Technical<br />Stacks
                         </h2>
-                        <span className="text-xs font-mono font-black opacity-30 tracking-[0.5em] mb-2 uppercase">LATEST_DEPLOYS</span>
+                        <span className="text-xs font-mono font-black opacity-30 tracking-[0.5em] mb-2 uppercase">LATEST DEPLOYS</span>
                     </div>
                     
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -62,27 +63,31 @@ const About: React.FC = () => {
                             description="An independent autonomous stack for expressive humanoids. Implements an asynchronous vision-to-action pipeline using Gemini 2.0 and specialized NLU patterns for context-aware interaction."
                             techStack={["Python", "Groq LLM", "Gemini 2.0", "OpenCV", "Kinematics"]}
                             href="https://github.com/alexbuildstech/nova"
-                            status="ACTIVE_BUILD"
+                            status="ACTIVE BUILD"
                             icon={<Cpu size={32} />}
-                            imageSrc="/nova_technical_v2.png"
                             header={
-                                <div className="my-10 p-10 border-4 border-foreground bg-muted space-y-8">
-                                    <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">ACTUATION</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">27 DOF Active</div>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">VISION</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">720p Real-time</div>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">COMPUTE</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">Radxa / Jetson</div>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">LATENCY</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">&lt;180ms Pipeline</div>
+                                <div className="space-y-8">
+                                    <div className="w-full bg-white border-4 border-foreground p-4">
+                                        <NovaDiagramSVG className="w-full h-auto" />
+                                    </div>
+                                    <div className="p-10 border-4 border-foreground bg-muted">
+                                        <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">ACTUATION</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">27 DOF Active</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">VISION</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">720p Real-time</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">COMPUTE</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">Radxa / Jetson</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">LATENCY</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">&lt;180ms Pipeline</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,27 +99,31 @@ const About: React.FC = () => {
                             description="Assistive navigation system exploring spatial memory. Features local-first object persistence (SQLite) and 3D audio heuristics (HRTF) for environment guidance."
                             techStack={["Python", "SQLite3", "CSRT", "Spatial Audio", "Gemini Pro"]}
                             href="https://github.com/alexbuildstech/assistivetech"
-                            status="R&D_STAGE"
+                            status="R&D STAGE"
                             icon={<Settings size={32} />}
-                            imageSrc="/assistive_tech_diagram.png"
                             header={
-                                <div className="my-10 p-10 border-4 border-foreground bg-muted space-y-8">
-                                    <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">DATABASE</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">SQLite Local</div>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">SPATIAL</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">3D HRTF Audio</div>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">TRACKING</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">Multi-CSRT</div>
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="opacity-30">RUNTIME</div>
-                                            <div className="text-sm border-l-4 border-accent pl-3">Event-Driven</div>
+                                <div className="space-y-8">
+                                    <div className="w-full bg-white border-4 border-foreground p-4">
+                                        <AssistiveTechDiagramSVG className="w-full h-auto" />
+                                    </div>
+                                    <div className="p-10 border-4 border-foreground bg-muted">
+                                        <div className="grid grid-cols-2 gap-10 font-mono text-[11px] font-black uppercase">
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">DATABASE</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">SQLite Local</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">SPATIAL</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">3D HRTF Audio</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">TRACKING</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">Multi-CSRT</div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="opacity-30">RUNTIME</div>
+                                                <div className="text-sm border-l-4 border-accent pl-3">Event-Driven</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -133,30 +142,30 @@ const About: React.FC = () => {
                             <Box size={48} className="text-accent" />
                             <h3 className="text-2xl font-black uppercase tracking-tighter">Production</h3>
                             <ul className="space-y-4 font-mono text-[11px] font-bold uppercase tracking-widest opacity-60">
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Anycubic Kobra 2 Neo</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Klipper-Tuned Firmware</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Polymaker Industrial</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Structural Testing</li>
+                                <li className="flex items-center gap-3"><span>•</span> Anycubic Kobra 2 Neo</li>
+                                <li className="flex items-center gap-3"><span>•</span> Klipper-Tuned Firmware</li>
+                                <li className="flex items-center gap-3"><span>•</span> Polymaker Industrial</li>
+                                <li className="flex items-center gap-3"><span>•</span> Structural Testing</li>
                             </ul>
                         </div>
                         <div className="p-12 border-4 border-foreground space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative">
                             <Database size={48} className="text-accent" />
                             <h3 className="text-2xl font-black uppercase tracking-tighter">Compute</h3>
                             <ul className="space-y-4 font-mono text-[11px] font-bold uppercase tracking-widest opacity-60">
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Arduino Mega / Uno</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Radxa Boards</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> NVIDIA Jetson Nano</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Multi-Bus Control</li>
+                                <li className="flex items-center gap-3"><span>•</span> Arduino Mega / Uno</li>
+                                <li className="flex items-center gap-3"><span>•</span> Radxa Boards</li>
+                                <li className="flex items-center gap-3"><span>•</span> NVIDIA Jetson Nano</li>
+                                <li className="flex items-center gap-3"><span>•</span> Multi-Bus Control</li>
                             </ul>
                         </div>
                         <div className="p-12 border-4 border-foreground space-y-8 bg-card hover:shadow-[16px_16px_0_0_#0055ff] transition-all group relative">
                             <Terminal size={48} className="text-accent" />
                             <h3 className="text-2xl font-black uppercase tracking-tighter">Logic</h3>
                             <ul className="space-y-4 font-mono text-[11px] font-bold uppercase tracking-widest opacity-60">
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Python 3.14</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> OpenCV / Mediapipe</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> VLM Integration</li>
-                                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-accent" /> Kinematics Solvers</li>
+                                <li className="flex items-center gap-3"><span>•</span> Python 3.14</li>
+                                <li className="flex items-center gap-3"><span>•</span> OpenCV / Mediapipe</li>
+                                <li className="flex items-center gap-3"><span>•</span> VLM Integration</li>
+                                <li className="flex items-center gap-3"><span>•</span> Kinematics Solvers</li>
                             </ul>
                         </div>
                     </div>

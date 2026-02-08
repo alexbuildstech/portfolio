@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
         <nav className="fixed top-0 left-0 w-full z-50 pointer-events-auto bg-background/95 backdrop-blur-md border-b-4 border-foreground">
             <div className="max-w-7xl mx-auto px-6 lg:px-24 h-24 flex items-center justify-between">
                 <Link to="/" className="text-2xl font-[900] tracking-tighter hover:text-accent transition-colors font-mono">
-                    ALEX PAUL <span className="opacity-20 text-xs tracking-normal">V2.0</span>
+                    ALEX PAUL <span className="text-accent text-xs tracking-normal">V2.0</span>
                 </Link>
                 
                 <div className="flex items-center gap-12">

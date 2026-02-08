@@ -68,9 +68,9 @@ const CombinedSection: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="space-y-12"
                     >
-                        <span className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">BUILDER_LOG_2026</span>
+                        <span className="text-xs font-mono font-black tracking-[0.5em] uppercase text-accent">BUILDER LOG 2026</span>
                         <p className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] uppercase">
-                            "Numbers<br />don't lie." 
+                            "THE NUMBERS<br />DON'T LIE." 
                         </p>
                         <div className="space-y-8 border-l-8 border-foreground pl-12">
                             <p className="text-xl font-bold tracking-tight leading-tight uppercase">
