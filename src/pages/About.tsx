@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import Navbar from "../components/layout/Navbar";
-import { Cpu, User, Settings, Database, Terminal, Info, Clock } from "lucide-react";
+import { Cpu, Settings, Database, Terminal, Info, Clock } from "lucide-react";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { useRobotStore } from "@/hooks/useRobotStore";
-import { NovaDiagramSVG, AssistiveTechDiagramSVG } from "@/components/ui/TechnicalDiagrams";
+import { NovaDiagramSVG } from "@/components/ui/TechnicalDiagrams";
 
 const About: React.FC = () => {
     const { setIsRobotLoaded } = useRobotStore();

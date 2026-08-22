@@ -46,7 +46,7 @@ const MatrixRain: React.FC<MatrixRainProps> = ({
         // Gold Particle settings
         // Using the component's fontSize for particle spacing, but particles themselves are small circles
         const particleSpacing = fontSize; // Use fontSize prop for column spacing
-        let columns = Math.ceil(canvas.width / particleSpacing);
+        const columns = Math.ceil(canvas.width / particleSpacing);
         const drops: number[] = new Array(columns).fill(0).map(() => Math.random() * -100);
 
 

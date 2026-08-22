@@ -13,7 +13,7 @@ describe("Navigation", () => {
             </HashRouter>
         );
 
-        expect(screen.getByText(/Home/i)).toBeInTheDocument();
+        expect(screen.getByText(/Projects/i)).toBeInTheDocument();
         expect(screen.getByText(/About/i)).toBeInTheDocument();
         expect(screen.getByText(/Contact/i)).toBeInTheDocument();
     });
@@ -28,8 +28,8 @@ describe("Navigation", () => {
         await user.click(contactLink);
 
         // Verify we are on the contact page by looking for unique content
-        const title = await screen.findByText(/INQUIRIES/i);
+        const title = await screen.findByText(/Want to talk/i);
         expect(title).toBeInTheDocument();
-        expect(screen.getByText(/\+91 9265763478/i)).toBeInTheDocument();
+        expect(screen.getByText(/alexazander3@gmail\.com/i)).toBeInTheDocument();
     });
 });

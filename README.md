@@ -1,68 +1,48 @@
 # Alex's Portfolio
 
-A highly interactive, Cyberpunk/Matrix-themed personal portfolio website built with React, Three.js (via Spline), and Tailwind CSS. It features a responsive layout, a custom 3D robot interaction, and a detailed timeline of robotics and AI projects.
+Personal portfolio site for a robotics/AI engineer. Brutalist industrial theme: heavy borders, monochrome type, Matrix-rain and scanline effects, scroll-driven animation.
 
-## 🎨 Design Evolution
+Live: https://alexbuildstech.github.io/portfolio/
 
-This portfolio went through several design iterations before arriving at its current form:
+## Tech Stack
 
-1. **V1 — Futuristic Acrylic**: Started with a sci-fi aesthetic featuring acrylic-style panels and holographic effects. It looked cool, but felt generic and overused.
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **Animation**: Framer Motion (scroll-linked hero, route transitions), GSAP (in the robot component)
+- **Routing**: React Router DOM with `HashRouter`
+- **Testing**: Vitest, React Testing Library, happy-dom
 
-2. **V2 — Glassmorphism + Rounded Corners**: Pivoted to a softer approach with frosted-glass cards and rounded UI elements. This improved readability but ended up looking too "template-y" and lacked personality.
+Note: the Spline 3D robot component (`src/components/ui/Robot3D.tsx`) is in the codebase but is currently not mounted anywhere in the page tree — the current landing page is Framer Motion only.
 
-3. **V3 — Refined Minimalism (Current)**: Stripped back the visual noise. The new direction uses a minimalist foundation with intentional color pops—keeping the interface clean while still feeling bold and expressive. The result: a design that breathes, stands out, and doesn't scream "AI-generated portfolio."
+## Engineering Notes
 
-## 🚀 Live Demo
-https://alexbuildstech.github.io/portfolio/
+### Test environment (`ERR_REQUIRE_ESM`)
 
-## 🛠️ Tech Stack
+The `jsdom` environment in Vitest hit `ERR_REQUIRE_ESM` errors on ESM-only dependencies (`html-encoding-sniffer`, `@splinetool/react-spline`). Migrated to `happy-dom`, which handles the ESM interop. Heavy visual components (`Spline`, `MatrixRain`) are mocked in `src/test/setup.ts` to avoid WebGL requirements in headless runs.
 
--   **Frontend**: React, TypeScript, Vite
--   **Styling**: Tailwind CSS, shadcn/ui
--   **3D/Animation**: Spline (React Spline), Framer Motion
--   **Routing**: React Router DOM (HashRouter)
--   **Testing**: Vitest, React Testing Library, happy-dom
+### GitHub Pages deployment
 
-## 🧩 Challenges & Solutions
+Two problems with SPAs on static hosts, two fixes:
 
-During the development of this portfolio, we encountered and solved several technical challenges:
+1. **Routing**: `BrowserRouter` 404s on direct visits to sub-paths like `/contact`. Switched to `HashRouter` (`/#/contact`), which needs no server-side routing support.
+2. **Assets**: the site lives in a project subpath, so absolute `/assets/...` URLs break. `vite.config.ts` uses `base: "./"` so all asset requests resolve relative to `index.html`.
 
-### 1. **Testing Environment (`ERR_REQUIRE_ESM`)**
--   **Problem**: The `jsdom` environment in Vitest struggled with ESM modules, specifically causing `ERR_REQUIRE_ESM` errors when processing certain dependencies like `html-encoding-sniffer` and `@splinetool/react-spline`.
--   **Solution**: Migrated the test environment to `happy-dom`. This lightweight DOM implementation handled the ESM interop much better. We also mocked heavy visual components (`Spline`, `MatrixRain`) in `setup.ts` to avoid WebGL errors in the headless test environment.
+Deploy runs via `npm run deploy` (`predeploy` builds, then `gh-pages -d dist`).
 
-### 2. **Mobile Interaction (No Cursor)**
--   **Problem**: The 3D robot was designed to "look at" the mouse cursor. On mobile devices, there is no persistent cursor, making the robot static and unresponsive.
--   **Solution**: Implemented `onTouchMove` and `onTouchStart` event handlers in a wrapper `div`. These handlers capture touch coordinates and dispatch valid `mousemove` events to the underlying Spline canvas, allowing users to "drag" anywhere on the screen to control the robot's gaze.
+## Pages
 
-### 3. **GitHub Pages Deployment**
--   **Problem 1 (Routing)**: Single Page Applications (SPAs) using `BrowserRouter` (History API) return 404 errors when visiting sub-paths (e.g., `/contact`) directly on static hosts like GitHub Pages.
--   **Problem 2 (Assets)**: If the repository is not at the root domain, asset paths (`/assets/...`) break.
--   **Solution**: 
-    -   Switched to `HashRouter`, which uses the URL hash (`/#/contact`) to manage routing on the client side, bypassing server-side routing issues.
-    -   Updated `vite.config.ts` with `base: "./"`, ensuring all asset requests are relative to the `index.html` location.
+- **Home**: animated landing (scroll-linked typography, Matrix rain background)
+- **About**: project timeline (Nova humanoid, assistive tech) with technical diagrams
+- **Contact**: email + GitHub links
 
-## 📦 Navigation
+## Running Locally
 
--   **Home**: Introduction and animated 3D/Matrix landing.
--   **About**: Timeline of projects (Nova Humanoid, Assistive Tech) with awards and links.
--   **Contact**: Minimalist contact information.
-
-## 🏃‍♂️ Running Locally
-
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/your-repo.git
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-3.  Start the development server:
-    ```bash
-    npm run dev
-    ```
-4.  Run tests:
-    ```bash
-    npm test
-    ```
+```bash
+git clone git@github.com:alexbuildstech/portfolio.git
+cd portfolio
+npm install
+npm run dev      # dev server
+npm test         # vitest suite
+npm run build    # production build
+npm run lint     # eslint
+```
